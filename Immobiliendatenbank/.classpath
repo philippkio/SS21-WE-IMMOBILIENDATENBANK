@@ -9,5 +9,15 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache-tomee-plume-9.0.0-M7/lib/jakartaee-api-9.1.0-tomcat.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://tomcat.apache.org/tomcat-10.0-doc/api/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache-tomee-plume-9.0.0-M7/lib/jakarta.faces-3.0.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://tomcat.apache.org/tomcat-10.0-doc/api/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

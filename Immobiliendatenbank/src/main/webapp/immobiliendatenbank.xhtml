@@ -9,84 +9,70 @@ vorlage.xhtml - Diese Seite können Sie als Vorlage für eigene JSF 3.0-Seiten
 <html xmlns="http://www.w3.org/1999/xhtml"
 	    xmlns:f="http://xmlns.jcp.org/jsf/core"
 	    xmlns:h="http://xmlns.jcp.org/jsf/html">
- 
+ <style>
+body {
+  background-image: url('https://wallpapercave.com/wp/wp4110640.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+}
+</style>
 <h:head>
   <h:outputStylesheet library="css" name="myCss.css"/>  
-  <title>Immobiliendatenbank</title>
+  <title>Immobiliensuche</title>
   <meta charset="utf-8"/>
 </h:head>
 
 <h:body><h:form>
   
-  <a href="https://myfaces.apache.org/">
-    <h:graphicImage library="img" name="jsf-logo.png" styleClass="csslogo" 
-                                                       alt="JSF"/>
-    <!--  Alternativ zu h:graphicImage sollte auch gehen:
-          <img class="csslogo" src="resources/img/jsf-logo.png" alt="JSF"/> -->
-  </a>
   
-  <h:panelGrid columns="2">
-  <h:graphicImage library="img" name="java.png" alt="Logo"/>
-  <h:outputText value="Tage bis Geburtstag"
-                styleClass="branding" /></h:panelGrid>   
-  <!--  ==================================================================   -->
-   <h:form>    
-   <h:panelGrid columns="2">  
-     <h:panelGrid columns="2">  
-            
-       <f:facet name="header">
-          <h:messages globalOnly="false"    showDetail="true" showSummary="true" 
-                      infoClass="msgInfo"   warnClass="msgWarning"
-                      errorClass="msgError" fatalClass="msgFatal"/></f:facet>             
-       <f:facet name="footer">
-           <br/><h:commandButton id="id_go" value="Barwert berechnen"
-                                 actionListener="#{mbBarwert.berechneBarwert}"/>               
-        </f:facet>
-      
-        Künftiger Zahlungsfluss &#160; 
-        <h:inputText label="Künftiger Zahlungsfluss" value="#{mbBarwert.k}"
-                     required="true"
-                     requiredMessage="Bitte positiven Betrag angeben">
-          <f:convertNumber locale="#{mbBarwert.locale}"     
-                           minFractionDigits="2" maxFractionDigits="2"/>
-          <f:validateDoubleRange minimum="0.0"/>
-        </h:inputText>
-          
-        <!-- Achtung: Die Zeichenkette in requiredMessage darf keinen 
-            Zeilenumbruch enthalten! -->
-        Jahre &#160;
-        <h:inputText label="Jahre" value="#{mbBarwert.n}" required="true" 
-                     requiredMessage=
-                     "Nach wie vielen Jahren erfolgt die Zahlung?"
-                     converter="jakarta.faces.Integer">
-         <f:validateLongRange minimum="1"/>       
-        </h:inputText>
-      
-        Zinssatz (in %) &#160;
-        <h:inputText label="Zinssatz" value="#{mbBarwert.z}" required="true"
-                     requiredMessage="Bitte Zinssatz angeben"> 
-            <f:convertNumber locale="#{mbBarwert.locale}"/>
-            <f:validateDoubleRange minimum="0.0"/>
-        </h:inputText>
-                    
-        <h:outputText value="Barwert: "
-                        style="font-size:larger; font-weight:bold;"/>
-        <h:outputText value="#{mbBarwert.b}"
-                        style="font-size:larger; font-weight:bold;">
-          <f:convertNumber type="currency"      maxFractionDigits="2" 
-                           currencySymbol = "€" minFractionDigits="2"
-                           locale="#{mbBarwert.locale}"/>
-        </h:outputText>  
   
-    </h:panelGrid>  
-    
-     <h:graphicImage value="#{mbBarwert.imgMoney}" title="Money" alt="Money"/>
-    </h:panelGrid>   
-                      
-  </h:form>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center"  class="outer_table">
+            <tr>
+                <td>
+                    <table width="500" height="300" cellpadding="0" cellspacing="0" border="0" align="center">
+                        <tr>
+                            <td align="center">
+                                
+                                    <h:panelGrid columns="2" cellpadding="5">
+                                    	<h:outputText value="Immobiliensuche"
+										                styleClass="branding" />
+										
+										<br></br>
+										<h:form>
+										<label for="typedropdown">Immobilientyp:  </label> 
+										<h:selectOneMenu id="typedropdown" value = "#{userData.data}"> 
+   										<f:selectItem itemValue = "1" itemLabel = "Alle" /> 
+								   		<f:selectItem itemValue = "2" itemLabel = "Wohnung" />
+								   		<f:selectItem itemValue = "2" itemLabel = "Haus" />
+								   		</h:selectOneMenu>
+								   		<br></br>
+								   		<label for="mindestgroesse">Größe in qm:  </label>
+										<h:inputText id="mindestgroesse" label="Immobilientyp:" value="#{mbBarwert.n}"  required="true" 
+								                     requiredMessage=
+								                     "Nach wie vielen Jahren erfolgt die Zahlung?"
+								                     converter="jakarta.faces.Integer">
+								         <f:validateLongRange minimum="1"/>       
+								        </h:inputText>
+                                        
+                                        
+								           <br/><h:commandButton id="id_go" value="Immobilien suchen!"
+								                                 actionListener="#{mbBarwert.berechneBarwert}" />               
+								        
+								   		</h:form>
+								   		
+								   		
+								   		
+                                    </h:panelGrid>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
   
-  <!--  ==================================================================   -->    
- 
+  
 
  
 	

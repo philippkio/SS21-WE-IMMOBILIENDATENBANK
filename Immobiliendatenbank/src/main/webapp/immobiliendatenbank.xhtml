@@ -8,7 +8,8 @@ vorlage.xhtml - Diese Seite können Sie als Vorlage für eigene JSF 3.0-Seiten
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	    xmlns:f="http://xmlns.jcp.org/jsf/core"
-	    xmlns:h="http://xmlns.jcp.org/jsf/html">
+	    xmlns:h="http://xmlns.jcp.org/jsf/html"
+	    xmlns:p="http://primefaces.org/ui">
  <style>
 body {
   background-image: url('https://wallpapercave.com/wp/wp4110640.jpg');
@@ -24,13 +25,19 @@ body {
 </h:head>
 
 <h:body><h:form>
+<h:messages globalOnly="false"    showDetail="true" showSummary="true" 
+              infoClass="msgInfo"   warnClass="msgWarning"
+              errorClass="msgError" fatalClass="msgFatal"/>  
   
-  
-  
+<div align="right">
+         <br/><h:commandButton id="id_login" value="Login" actionListener="#{mbBarwert.berechneBarwert}"/>  
+</div> 
+
+
   <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center"  class="outer_table">
             <tr>
                 <td>
-                    <table width="500" height="300" cellpadding="0" cellspacing="0" border="0" align="center">
+                    <table width="500" height="300" cellpadding="0" cellspacing="0" border="10" align="center">
                         <tr>
                             <td align="center">
                                 
@@ -39,26 +46,49 @@ body {
 										                styleClass="branding" />
 										
 										<br></br>
+										
 										<h:form>
 										<label for="typedropdown">Immobilientyp:  </label> 
 										<h:selectOneMenu id="typedropdown" value = "#{userData.data}"> 
    										<f:selectItem itemValue = "1" itemLabel = "Alle" /> 
 								   		<f:selectItem itemValue = "2" itemLabel = "Wohnung" />
-								   		<f:selectItem itemValue = "2" itemLabel = "Haus" />
+								   		<f:selectItem itemValue = "2" itemLabel = "Einfamilienhaus" />
+								   		<f:selectItem itemValue = "2" itemLabel = "Reihenhaus" />
+								   		<f:selectItem itemValue = "2" itemLabel = "Doppelhaushälfte" />
+								   		<f:selectItem itemValue = "2" itemLabel = "Grundstück" />
 								   		</h:selectOneMenu>
+								   		<p:spacer width  = "100" height = "50" />
 								   		<br></br>
-								   		<label for="mindestgroesse">Größe in qm:  </label>
+								   		<label for="mindestgroesse">Mindestgröße in qm:  </label>
 										<h:inputText id="mindestgroesse" label="Immobilientyp:" value="#{mbBarwert.n}"  required="true" 
 								                     requiredMessage=
 								                     "Nach wie vielen Jahren erfolgt die Zahlung?"
 								                     converter="jakarta.faces.Integer">
 								         <f:validateLongRange minimum="1"/>       
 								        </h:inputText>
-                                        
-                                        
+								        <p:spacer width  = "100" height = "20" />
+                                        <br></br>
+								   		<label for="ortderimmo">Ort:  </label>
+										<h:inputText id="ortderimmo" label="Immobilientyp:" value="#{mbBarwert.n}"  required="false" 
+								                     converter="jakarta.faces.Integer">
+								         <f:validateLongRange minimum="1"/>       
+								        </h:inputText>
+								       <p:spacer width  = "100" height = "20" />
+								   		<label for="preismin">Preis min:  </label>
+										<h:inputText id="preismin" label="Immobilientyp:" value="#{mbBarwert.n}"  required="false" 
+								                     converter="jakarta.faces.Integer">
+								         <f:validateLongRange minimum="1"/>       
+								        </h:inputText>
+								        <p:spacer width  = "100" height = "20" />
+								   		<label for="preismax">Preis max:  </label>
+										<h:inputText id="preismax" label="Immobilientyp:" value="#{mbBarwert.n}"  required="false" 
+								                     converter="jakarta.faces.Integer">
+								         <f:validateLongRange minimum="1"/>       
+								        </h:inputText>
+                                        <p:spacer width  = "100" height = "20" />
 								           <br/><h:commandButton id="id_go" value="Immobilien suchen!"
 								                                 actionListener="#{mbBarwert.berechneBarwert}" />               
-								        
+								        <p:spacer width  = "100" height = "20" />
 								   		</h:form>
 								   		
 								   		

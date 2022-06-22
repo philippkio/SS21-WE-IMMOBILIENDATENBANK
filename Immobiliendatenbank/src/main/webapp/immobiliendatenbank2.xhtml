@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+
+<!-- ===========================================================================
+vorlage.xhtml - Diese Seite können Sie als Vorlage für eigene JSF 3.0-Seiten 
+                verwenden. Damit ist ein einheitlicher Aufbau gewährleistet.                
+============================================================================ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:loadBundle basename="messages" var="res" />
+<style>
+body {
+	background-image: url('https://wallpapercave.com/wp/wp4110640.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+</style>
+<h:head>
+	<h:outputStylesheet library="css" name="myCss.css" />
+	<title>Immobiliensuche</title>
+	<meta charset="utf-8" />
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:messages globalOnly="false" showDetail="true" showSummary="true"
+			infoClass="msgInfo" warnClass="msgWarning" errorClass="msgError"
+			fatalClass="msgFatal" />
+
+		<div align="right">
+			<br />
+			<h:commandButton id="id_login" value="Login"
+				actionListener="#{mbBarwert.berechneBarwert}" />
+		</div>
+
+
+
+
+
+		<div id="wrapperDiv">
+			<div id="div1"
+				style="padding: 10px; background-color: #transparent; float: left">
+				<h4>
+					Immobilienart:<span>*</span>
+				</h4>
+				<select>
+					<option value=""></option>
+					<option value="">Einfamilienhaus</option>
+					<option value="2">Mehrfamilienhaus</option>
+					<option value="3">Reihenhaus</option>
+					<option value="4">Wohnung</option>
+				</select>
+			</div>
+			<div id="div2"
+				style="padding: 10px; background-color: #transparent; float: left">
+				<h4>
+					Ort der Immobilie:<span>*</span>
+				</h4>
+				<select>
+					<option value=""></option>
+					<option value="1">Berlin</option>
+					<option value="2">Hamburg</option>
+					<option value="3">München</option>
+					<option value="4">Köln</option>
+					<option value="5">Mainz</option>
+				</select>
+			</div>
+		</div>
+
+
+
+
+
+	</h:form>
+</h:body>
+</html>

@@ -10,6 +10,9 @@ vorlage.xhtml - Diese Seite können Sie als Vorlage für eigene JSF 3.0-Seiten
 	    xmlns:f="http://xmlns.jcp.org/jsf/core"
 	    xmlns:h="http://xmlns.jcp.org/jsf/html"
 	    xmlns:p="http://primefaces.org/ui">
+	    
+	    <f:loadBundle basename = "messages"
+	    var = "res"/>
  <style>
 body {
   background-image: url('https://wallpapercave.com/wp/wp4110640.jpg');
@@ -48,7 +51,7 @@ body {
 										<br></br>
 										
 										<h:form>
-										<label for="typedropdown">Immobilientyp:  </label> 
+										<label for="typedropdown">#{res.key1}</label> 
 										<h:selectOneMenu id="typedropdown" value = "#{userData.data}"> 
    										<f:selectItem itemValue = "1" itemLabel = "Alle" /> 
 								   		<f:selectItem itemValue = "2" itemLabel = "Wohnung" />

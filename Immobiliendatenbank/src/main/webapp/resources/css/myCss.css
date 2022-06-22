@@ -1,0 +1,383 @@
+/*******************************************************************************
+* External Style Sheet (Level 2.1)
+* Ver. 2021-08-10
+* Wird diese Datei in Dynamischen Web-Anwendungen (z. B. JSF oder Servlets) verwendet, 
+* sollte sie im Verzeichnis {Projekt}/WebContent/resources/css liegen. 
+* Successfully checked with https://jigsaw.w3.org/css-validator/
+*******************************************************************************/
+
+.centered {
+font-family: Arial, Helvetica, sans-serif;
+  font-size: 150%;
+  color: rgb(253, 253, 238);
+  font-weight: bold;
+  margin-top: 100px;
+  margin-left: 500px;
+  text-align: right;
+
+}
+.suchmaske {
+font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  color: black;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 0px;
+  text-align: left;
+}
+
+.flagge_de {
+background: url( ../resources/img/flagge_de_30_19.jpg ) !important; 
+height: 19px;
+width:  30px;
+}
+
+.flagge_en {
+background: url( ../resources/img/flagge_en_30_19.jpg ) no-repeat !important; 
+height: 19px;
+width:  30px;
+}
+
+.msgInfo {
+  color: white;	
+  background-color: green;
+  font-weight: bold;
+  border: 20px;
+  border-style: double;
+}
+
+.msgWarning {
+  color: white;
+  background-color: silver;
+  font-weight: bold;
+  border: 20px;
+  border-style: double;
+}
+
+.msgError {
+  color: white;
+  background-color: red;
+  font-weight: bold;
+  border: 20px;
+  border-style: double;
+}
+
+.msgFatal {
+  color: white;
+  background-color: red;
+  font-weight: bold;
+  border: 20px;
+  border-style: double;
+}
+
+.fragebox{    
+    margin: 10.0pt;
+    width: 100%;    
+}
+
+.fragelabel{
+  font-family: "Courier New", Courier, monospace;  
+}
+
+.fragelabelkopf{
+    font-size: 100%;
+    font-weight: bold;     
+}
+
+.frageradio{    
+    font-family: "Courier New", Courier, monospace;
+    /* color: white;
+    background-color: Aqua;    
+    width: 100%; */ 
+}
+
+.vcenter {
+  vertical-align: middle; 
+}
+.mittelseite{
+  vertical-align: text-bottom;
+  float: right;
+  border: 0;
+  margin-top   : 0;
+  margin-right : 5px;
+  margin-bottom: 0;
+	
+}
+
+img.csslogo { 
+  vertical-align: text-bottom;
+  float: right;
+  border: 0;
+  margin-top   : 0;
+  margin-right : 5px;
+  margin-bottom: 0;
+}
+
+.hwrlogo{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 130%;
+  color: #d90000;
+  font-weight: normal;
+  width: 325px; height: 69px
+}
+
+.branding {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 170%;
+  color: rgb(253, 253, 238);
+  font-weight: bold;
+  margin-top: 100px;
+  margin-left: 0px;
+  text-align: left;
+}
+
+.fortune{
+  color:  White;
+  /* background-color: #66ccff; */
+  background-color: #336699;
+  font-family: verdana,arial,helvetica,sans-serif;  
+  font-size: small;
+}
+
+.h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:130%;
+  color:#336699;
+  border : solid #cccc99;
+  border-width : 0px 0px 2px 0px;
+  width : 100%;
+}
+
+.h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:110%;
+  font-weight: bold;
+  color:#336699;
+  width : 100%; 
+}
+
+.loginbox{
+  /*background-color: rgb(231,231,231);
+  background-color: #336699;*/
+  background-color: rgb(247,247,247);
+  /* border-style: inset;
+  margin: 10.0pt; */
+}
+
+.navilist{
+  height: 7.0em;
+  /* background-color: rgb(247,247,247); */
+}
+
+.topnewsheader{
+  font-size: larger; 
+  color: Silver;
+}
+
+BODY, P, LI, UL, OL {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 97%;
+  color:#000000;
+  list-style-position: outside;
+}
+
+A:link {
+  font-family: Arial, Helvetica, sans-serif;
+  color:#663300;
+  
+}
+
+A:active {
+  font-family: Arial, Helvetica, sans-serif;
+  color:#ff6600;
+  
+}
+
+A:visited {
+  font-family: Arial, Helvetica, sans-serif;
+  color:#996633;
+  
+}
+
+A.navigation:link
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:65%; 
+  color:#996633;
+}
+
+A.navigation:active
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:65%; 
+  color:#996633;
+}
+
+A.navigation:visited
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:65%; 
+  color:#996633;
+}
+
+p.listpara
+{text-indent: 15%}
+
+H1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:170%;
+  color:#336699;
+  border : solid #CCCC99;
+  width : 100%;
+  border-width : 0px 0px 2px 0px; 
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:130%;
+  color:#336699;
+  border : solid #cccc99;
+  border-width : 0px 0px 2px 0px;
+  width : 100%;
+}
+
+H3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:110%;
+  color:#336699;
+  width : 100%; 
+}
+
+H4 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:92%;
+  color:#000000;
+      font-weight: bold;
+  width : 100%;
+}
+
+.code_no_color {
+        color : #000000;
+  font-family : "Courier New", Courier, monospace;
+}
+
+code {  
+  color : #336699;
+  font-family : "Courier New", Courier, monospace;
+}
+
+P.indent {
+  text-indent: 9%;
+}
+
+table.borders {
+  border : 1pt solid #BDB76B;
+}
+
+TR {
+  text-align : center;
+  vertical-align : top;
+  margin-left: 50%;
+}
+
+TH {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  color:#000000;
+  font-weight: bold;
+}
+
+TD {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  color:#000000;
+}
+
+.smalltext {
+  font-size:80%;
+}
+
+p.note { 
+    display: block; 
+    font-family: Arial, Helvetica, Geneva, sans-serif; 
+    font-size: 95%;
+}
+
+p.warning { 
+    display: block;
+    font-family: Arial, Helvetica, Geneva, sans-serif; 
+    font-size: 95%;
+}
+
+pre { 
+    font-family: "Courier New", Courier, mono; 
+    font-size: 92%;
+    text-indent : 15%;
+}
+
+.GUITag {
+    font-family: Arial, Helvetica, Geneva, sans-serif; 
+    font-size: 95%; 
+    font-weight: bold; 
+    font-style: normal;
+}
+
+.PropertyName {
+    font-family: "Courier New", Courier, mono; 
+    font-style: normal;
+}
+
+.GlossaryItem { 
+    color : #008080; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size : 95%;
+}
+
+.search-interface {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-interface select {
+  width: 50%;
+  height: 40px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.search-interface input {
+  width: 50%;
+  height: 40px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.search-interface button {
+  width: 50%;
+  height: 400px;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.wrapper {
+    width: 500px;
+    border: 1px solid black;
+    overflow: hidden; /* add this to contain floated children */
+    align-items: center;
+}
+.first {
+    width: 300px;
+    float:left; /* add this */
+    border: 1px solid red;
+}
+.second {
+    border: 1px solid green;
+    float: left; /* add this */
+}

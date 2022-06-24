@@ -4,13 +4,16 @@ import static java.lang.System.out;
 
 import java.io.Serializable;
 
-import jakarta.enterprise.context.SessionScoped;
+
 import jakarta.faces.event.ActionEvent;
+
+
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 
 
-@Named 
-@jakarta.faces.bean.RequestScoped
+@Named
+@RequestScoped
 public class MbSuchmaske {
 
     private String immobilienart;

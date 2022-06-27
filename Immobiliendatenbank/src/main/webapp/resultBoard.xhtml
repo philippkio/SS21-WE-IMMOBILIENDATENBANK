@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+
+<!-- ===========================================================================
+login.xhtml - Startseite für Navigationsbeispiel                  
+============================================================================ -->
+                     
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+	 </h:head>
+
+<h:body>
+<ui:composition template="/masterLayout.xhtml">
+
+<ui:define name="title">result-Page</ui:define>
+
+<ui:define name="content">
+
+
+
+ <!-- ==========Insert  board============== -->
+
+   
+   
+   	<h4>Hier finden Sie alle Objete die auf Ihre Anfrage passen:</h4>
+		
+		
+<div class="container overflow-hidden">
+	<div class="row gy-9">
+	
+		Test: #{mBSuchmaske.immobilienart}
+		  <div class="text flex-nowrap col-6">
+	            <span class="text col-3"><h3>Art der Immobiele</h3></span>
+	            <output class= "text">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	      </div>
+	        <div class="text flex-nowrap col-6">
+	            <span class="text col-3"><h3>Ort der Immobilie</h3></span>
+	            <output class= "text">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	        </div>
+	        
+	        <div class="text flex-nowrap col-6">
+	            <span class="text col-3"><h3>Anschrift</h3></span>
+	            <output class= "text"
+	            id="Anchrift-output">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	      </div>
+	        <div class="text flex-nowrap col-6">
+	            <span class="text col-3"><h3>Preis der Immobile</h3></span>
+	            <output class= "text">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	        </div>
+	        
+	        <div class="text flex-nowrap col-6">
+	            <span class="text col-3"><h3>Indor größe</h3></span>
+	            <output class= "text">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	      </div>
+	        <div class="text flex-nowrap col-6">
+	            <span class="text col-3"><h3>outdor größe</h3></span>
+	            <output class= "text">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	        </div>
+	        
+	     
+	        
+        
+        
+	
+	<div>
+	<div class="text flex-nowrap ">
+	            <span class="text "><h3>Beschreibung </h3></span>
+	            <output class= "text">
+	            <h5> Beispieltext
+	            </h5>
+	            </output>
+	      </div>
+	      
+		<h5> Ihre Immobilie könnte wie folgt aussehen: </h5>
+		<img src="..." class="img-fluid center" alt="...">	</img>
+	</div>
+	
+	
+	
+	
+	
+	
+					
+					
+					
+					
+					
+		
+   
+		 <nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-center">
+			 <li class="page-item disabled">
+			   <a class="page-link">Previous</a>
+				 </li>
+				  <li class="page-item"><a class="page-link" href="#">1</a></li>
+				  <li class="page-item"><a class="page-link" href="#">2</a></li>
+				  <li class="page-item"><a class="page-link" href="#">3</a></li>
+				  <li class="page-item">
+			    <a class="page-link" href="#">Next</a>
+			 </li>
+		  </ul>
+		</nav>
+
+	</div>
+</div>
+
+
+ </ui:define>
+  </ui:composition>
+
+ </h:body>
+ </html>
+
+

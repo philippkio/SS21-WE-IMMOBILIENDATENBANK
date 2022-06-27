@@ -10,7 +10,7 @@
  
   </description>
   <welcome-file-list>
-    <welcome-file>immobiliendatenbank.xhtml</welcome-file>
+    <welcome-file>mainBoard.xhtml</welcome-file>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <servlet>

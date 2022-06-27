@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+
+<!-- ===========================================================================
+login.xhtml - Loginportal               
+============================================================================ -->
+                     
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+	 </h:head>
+
+<h:body>
+<ui:composition template="/masterLayout.xhtml">
+
+<ui:define name="title">User-Login</ui:define>
+
+<ui:define name="content">
+
+
+
+ <!-- ==========LOGIN============== -->
+
+    <div class="container overflow-hidden">
+			<div class="row gy-5">
+        <h1>Traumimmobilie Login</h1>
+    </div>
+    
+</div>
+<form>
+<div class="container overflow-hidden">
+	<div class="row gy-9">
+	<div class = "">
+        <h3>Geben Sie bitte Ihre <mark>Logindaten</mark>, sowie Ihr <mark>Passwort</mark> an.</h3>
+    </div>
+    
+     <div class="input-group flex-nowrap">
+        <span class="input-group-text col-2" id="user-label">LoginDaten</span>
+        <input type="text"
+               class="form-control col-4"
+               name="logindaten"
+               placeholder="User-ID"
+               aria-label="Input field for user ID"
+               aria-describedby="user-label"></input>
+    </div>
+    <div class="input-group flex-nowrap">
+        <span class="input-group-text col-2" id="pwd-label">Passwort</span>
+        <input type="password"
+               class="form-control col-4"
+               name="pwd"
+               placeholder="Password"
+               aria-label="Input field for password"
+               aria-describedby="pwd-label"></input>
+    </div>
+    
+        <div>
+            <button class="btn btn-dark mcmakler-color" type="submit" actionListener="#{mb.aclLogout}">Login</button>
+        </div>			
+									
+					
+	</div>
+		
+</div>
+
+</form>
+
+ <!-- ====================== hab ich mal noch drinnne gelassen ======================== -->
+ <h:panelGrid columns="1" rendered="#{mb.loggedIn}" style="float: right;">
+ Angemeldet als <strong>#{mb.kennung}</strong>
+ <h:commandButton value="Logout" actionListener="#{mb.aclLogout}"/>
+ </h:panelGrid>
+
+ </ui:define>
+  </ui:composition>
+
+ </h:body>
+ </html>
+
+

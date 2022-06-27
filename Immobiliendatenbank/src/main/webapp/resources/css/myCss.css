@@ -5,13 +5,171 @@
 * sollte sie im Verzeichnis {Projekt}/WebContent/resources/css liegen. 
 * Successfully checked with https://jigsaw.w3.org/css-validator/
 *******************************************************************************/
+div {
+    border: 2px solid white;
+}
+
+/* flash messages: */
+.alert-error {
+    margin: 10px 50px 0px 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.alert-msg-error {
+    display: flex;
+}
+.flash-close {
+    border-radius: 10%;
+    margin: 5px 5px 5px 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.alert-success {
+    margin: 10px 50px 0px 50px;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    position: relative;
+}
+.alert-msg-success {
+    display: block;
+}
+.flash-ok {
+    border-radius: 10%;
+    margin: 10px 0px 0px 0px;
+    padding: 0px 25px 0pc 25px;
+    align-items: center;
+}
+/* general-css: */
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 45px;
+    color:rgb(49, 58, 112);
+    padding: 75px 0px 50px 0px;
+}
+h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 26px;
+}
+h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+  
+    
+#h4-pwd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-group {
+    margin: 30px 0px 30px 0px;
+}
+.form-control {
+    padding: 15px 0px 15px 20px;
+}
+.p-3 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.input-group-text {
+    font-weight: 600 !important;
+    font-size: 20px !important;
+}
+.form-check {
+    padding-left: 20%;
+    margin-bottom: 35px;
+}
+.form-check-label {
+    font-size: 20px;
+}
+.form-check-input:checked {
+    background-color: #004b54;
+    border-color: #004b54;
+}
+.form-check-input:focus {
+    border-color: #bed1d3;
+    box-shadow: 0 0 0 0.25rem rgb(0 75 84 / 50%);
+}
+.btn {
+    margin: 25px 0px 50px 0px;
+    font-weight: 600;
+    font-size: 20px;
+}
+.container{
+	 display: flex;
+    justify-content: center;
+    align-items: center;
+	
+}
+.menu-right {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+.link-seperator {
+    color: #004b54;
+    font-size: 32px;
+    font-weight: 600;
+    padding: 15px 10px 0px 10px;
+}
+.btn-link {
+    color: #004b54;
+    padding: 0px 0px 0px 0px;
+}
+.btn-link:hover {
+ color: #F2D348;
+}
+.btn-link:focus {
+    border-color: #bed1d3;
+    box-shadow: 0 0 0 0.25rem rgb(0 75 84 / 50%);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #bed1d3;
+    border-color: #bed1d3;
+}
+.accordion-button:focus {
+    border-color: #bed1d3;
+    box-shadow: 0 0 0 0.25rem rgb(0 75 84 / 50%);
+}
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+.form-control:focus {
+    border-color: #bed1d3;
+    box-shadow: 0 0 0 0.25rem rgb(0 75 84 / 50%);
+}
+.add-user-form {
+    margin-top: 0px;
+}
+.button-split {
+    display: inline-block;
+}
+.split-button {
+    float: right;
+}
 
 .centered {
 font-family: Arial, Helvetica, sans-serif;
   font-size: 150%;
   color: rgb(253, 253, 238);
   font-weight: bold;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 500px;
   text-align: right;
 

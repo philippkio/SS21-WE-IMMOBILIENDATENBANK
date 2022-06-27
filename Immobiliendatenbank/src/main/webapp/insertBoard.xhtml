@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+
+<!-- ===========================================================================
+insertBoard.xhtml - Einstellen der Objekte                
+============================================================================ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+	<ui:composition template="/masterLayout.xhtml">
+
+		<ui:define name="title">Insert-Board</ui:define>
+
+		<ui:define name="content">
+			<form>
+
+				<h4>Bitte geben Sie alle benötiigten Daten ein die uns helfen
+					könnten Ihre Traumimobilie zu vermarkten.</h4>
+				<div class="container overflow-hidden">
+					<div class="row gy-9">
+
+						<!-- anfang Dropdown auswahl möglichkeiten -->
+						<div class="input-group flex-nowrap">
+							<span class="input-group-text col-4 mb-2" id="Immo-wrapping">Immobilienart:</span>
+							<select name="immobilien_art"
+								class="form-select form-select-lg mb-2"
+								placeholder="Immobilienart_select" value="#{bean.immobilienart}"
+								aria-label=".form-select-lg example"
+								aria-describedby="addon-wrapping" actionListener=XXX>
+								<option value="value0">Klicken zum auswählen!</option>
+								<option value="value1">Eigentumswohnung</option>
+								<option value="value2">Einfamilienhaus</option>
+								<option value="value3">Mehrfamilienhaus</option>
+								<option value="value4">Reihenhaus</option>
+								<option value="value5">Grundstück</option>
+							</select>
+						</div>
+
+						<div class="input-group flex-nowrap">
+							<span class="input-group-text col-4 mb-2" id="city-wapping">Stadt:</span>
+							<select name="immo-location"
+								class="form-select form-select-lg mb-2"
+								placeholder="Immobilienart_select" value="#{bean.immobilienart}"
+								aria-label=".form-select-lg example"
+								aria-describedby="addon-wrapping">
+								<option value="auswahl">Klicken zum auswählen!</option>
+								<option value="Berlin">Berlin</option>
+								<option value="Hamburg">Hamburg</option>
+								<option value="München">München</option>
+								<option value="Köln">Köln</option>
+							</select>
+
+							<output value="#{bean.result}" />
+							<!-- Ende Dropdown auswhl möglichkeiten -->
+						</div>
+
+
+						<div>
+							<h3>Die Anschrift:</h3>
+							<div class="input-group flex-nowrap">
+								<span class="input-group-text col-4 mb-1" id="adress-label">Straße
+									und Hausnummer</span>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control col-5"
+										name="outdorgröße" placeholder="Musterstraße, "
+										aria-label="Input field for user ID"
+										aria-describedby="outdor-größe"> </input> <span
+										class="input-group-text"> Nr.</span> <input type="text"
+										class="form-control col-1 " name="outdorgröße"
+										placeholder=" 1" aria-label="Input field for user ID"
+										aria-describedby="outdor-größe"> </input>
+								</div>
+
+
+							</div>
+							<div class="input-group flex-nowrap">
+								<span class="input-group-text col-4" id="postcode-label">Postleizahhl</span>
+								<input type="text" class="form-control col-4" name="12345"
+									placeholder="in quadratmetern"
+									aria-label="Input field for user ID"
+									aria-describedby="outdor-größe"> </input>
+							</div>
+
+						</div>
+
+						<div class="input-group flex-nowrap">
+							<span class="input-group-text col-4" id="notes-label">Anmerkungen:</span>
+							<input type="text" class="form-control col-4" name="sonstiges"
+								placeholder="sontiges" aria-label="Input field for user ID"
+								aria-describedby="outdor-größe"> </input>
+						</div>
+
+						<div class="input-group col-4">
+							<span class="input-group-text">Objektbeschreibung</span>
+							<textarea class="form-control col-4" aria-label="With textarea">
+						  </textarea>
+						</div>
+
+
+						<div class="input-group flex-nowrap">
+							<span class="input-group-text col-4" id="IDsize-label">Indorgröße</span>
+							<input type="text" class="form-control col-4" name="indorgröße"
+								placeholder="in quadratmetern"
+								aria-label="Input field for user ID"
+								aria-describedby="indor-größe"> </input>
+						</div>
+
+						<div class="input-group flex-nowrap">
+							<span class="input-group-text col-4" id="ODsize-label">Outdorgröße</span>
+							<input type="text" class="form-control col-4" name="outdorgröße"
+								placeholder="in quadratmetern"
+								aria-label="Input field for user ID"
+								aria-describedby="outdor-größe"> </input>
+						</div>
+
+						<div class="input-group flex-nowrap">
+							<span class="input-group-text col-4" id="price-label">Preis</span>
+							<input type="text" class="form-control col-4"
+								name="Ihr wunsch Preis" placeholder="in quadratmetern"
+								aria-label="Input field for user ID"
+								aria-describedby="immo-preis"> </input>
+						</div>
+
+						<div class="input-group flex-nowrap col-4">
+							<span class="input-group-text col-4" id="picture-label">ImmobilienBild</span>
+							File name: &#160;
+							<h:inputFile id="id_inpFile" validator="#{mb.validateFile}"
+								label="File name" columns="50" value="#{mb.part}" />
+							<p />
+						</div>
+
+
+					</div>
+				</div>
+
+
+
+
+
+
+				<div class="container overflow-hidden">
+					<div class="row gy-9">
+						<button type="submit" class="btn btn-primary  button-split"
+							action="#{bean.submit}" name="update-user" value="clicked">Insert
+						</button>
+					</div>
+				</div>
+
+
+			</form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
+
+

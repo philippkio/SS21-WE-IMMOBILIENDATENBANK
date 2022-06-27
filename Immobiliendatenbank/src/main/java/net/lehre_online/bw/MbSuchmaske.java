@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
@@ -22,8 +23,8 @@ import jakarta.inject.Named;
  * @version 2021-07-30
  * @see "Foliensatz zur Vorlesung"
  */
-@Named
-@SessionScoped
+@Named("MbSuchmaske")
+@RequestScoped
 public class MbSuchmaske implements Serializable {
 	
 	
@@ -140,6 +141,10 @@ public class MbSuchmaske implements Serializable {
 
 	/*--------------------------------------------------------------------------*/
 
+	private void actionevent2(ActionEvent event) {
+		System.out.println("Hallo Button! Fuck You");
+	}
+	
 	private void showData() throws SQLException {
 		setImmobilienart(rs.getString("property_type"));
 		setStadt(rs.getString("city"));
@@ -273,7 +278,7 @@ public class MbSuchmaske implements Serializable {
 	 * 
 	 * @param ae ActionEvent
 	 */
-	public void insert() {
+	public void insert(ActionEvent event) {
 		
 		System.out.println("Insert entered...");
 

@@ -20,7 +20,7 @@ login.xhtml - Startseite für Navigationsbeispiel
 		<ui:define name="title">User-Login</ui:define>
 
 		<ui:define name="content">
-			<form>
+			<h:form>
 
 
 
@@ -30,10 +30,10 @@ login.xhtml - Startseite für Navigationsbeispiel
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
-
-
+  
 						<!-- Dropdown auswhl möglichkeiten -->
 						<div class="input-group flex-nowrap">
+						<!--  
 							<span class="input-group-text col-4" id="addon-wrapping">Immobilienart:</span>
 							<select name="cars" class="form-control col-2"
 								placeholder="Immobilienart_select"
@@ -47,7 +47,7 @@ login.xhtml - Startseite für Navigationsbeispiel
 								<option value="#{MbSuchmaske.immobilienart5}">Grundstück</option>
 							</select>
 							<h:inputText title="Textfeld1"
-								value="#{mbSuchmaske.immobilienart}"></h:inputText>
+								value="#{MbSuchmaske.immobilienart}"></h:inputText>
 						</div>
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">Stadt:</span>
@@ -62,7 +62,7 @@ login.xhtml - Startseite für Navigationsbeispiel
 							</select>
 
 							<output value="#{bean.result}" />
-							<!-- Ende Dropdown auswhl möglichkeiten -->
+							 Ende Dropdown auswhl möglichkeiten -->
 
 						</div>
 						<h3>Zum verfeinern der Suche:</h3>
@@ -115,16 +115,22 @@ login.xhtml - Startseite für Navigationsbeispiel
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
+					<!--  
 						<h:commandButton type="submit"
 							class="btn btn-primary  button-split"
-							actionListener="#{mBSuchmaske.insert()}" name="update-user"
-							value="Ergebnisse anzeigen!">Suche abschicken
+							actionListener="#{MbSuchmaske.insert}" name="update-user"
+							value="Ergebnisse anzeigen!" ajax="false">Suche abschicken
 		 </h:commandButton>
+		 -->
+		 <h:commandButton
+                        value="Button"
+                        actionListener="#{MbSuchmaske.insert}"
+                        styleClass="buttonRentenbescheid" />
 					</div>
 				</div>
 
 
-			</form>
+			</h:form>
 			<h:form>
 				<h:inputText value="#{bean.text}" required="true" />
 				<h:selectOneMenu value="#{bean.choice}" required="true">

@@ -8,7 +8,8 @@ login.xhtml - Startseite für Navigationsbeispiel
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
@@ -17,7 +18,7 @@ login.xhtml - Startseite für Navigationsbeispiel
 <h:body>
 	<ui:composition template="/masterLayout.xhtml">
 
-		<ui:define name="title">User-Login</ui:define>
+		<ui:define name="title">Immobiliensuche</ui:define>
 
 		<ui:define name="content">
 			<h:form>
@@ -33,37 +34,27 @@ login.xhtml - Startseite für Navigationsbeispiel
   
 						<!-- Dropdown auswhl möglichkeiten -->
 						<div class="input-group flex-nowrap">
-						<!--  
-							<span class="input-group-text col-4" id="addon-wrapping">Immobilienart:</span>
-							<select name="cars" class="form-control col-2"
-								placeholder="Immobilienart_select"
-								value="#{MbSuchmaske.immobilienart}" aria-label="qp-id-up"
-								aria-describedby="addon-wrapping">
-								<option value="">Klicken zum auswählen!</option>
-								<option value="#{MbSuchmaske.immobilienart1}">Eigentumswohnung</option>
-								<option value="#{MbSuchmaske.immobilienart2}">Einfamilienhaus</option>
-								<option value="#{MbSuchmaske.immobilienart3}">Mehrfamilienhaus</option>
-								<option value="#{MbSuchmaske.immobilienart4}">Reihenhaus</option>
-								<option value="#{MbSuchmaske.immobilienart5}">Grundstück</option>
-							</select>
-							<h:inputText title="Textfeld1"
-								value="#{MbSuchmaske.immobilienart}"></h:inputText>
+							<span class="input-group-text col-4" id="Immo-wrapping">Immobilienart:</span>
+							<p:selectOneMenu class="coll-5" id="auswahlImmobilienart" value="#{MbSuchmaske.immobilienart}">
+								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
+								<f:selectItem itemLabel="Eigentumswohnung" itemValue="Eigentumswohnung" />
+								<f:selectItem itemLabel="Einfamilienhaus" itemValue="Einfamilienhaus" />
+								<f:selectItem itemLabel="Mehrfamilienhaus" itemValue="Mehrfamilienhaus" />
+								<f:selectItem itemLabel="Reihenhaus" itemValue="Reihenhaus" />
+								<f:selectItem itemLabel="Grundstück" itemValue="Grundstück" />
+							
+							</p:selectOneMenu>
 						</div>
 						<div class="input-group flex-nowrap">
-							<span class="input-group-text col-4" id="addon-wrapping">Stadt:</span>
-							<select name="cars" class="form-control col-2"
-								placeholder="Immobilienart_select" value="#{MbSuchmaske.stadt}"
-								aria-label="qp-id-up" aria-describedby="addon-wrapping">
-								<option value="">Klicken zum auswählen!</option>
-								<option value="Berlin">Berlin</option>
-								<option value="Hamburg">Hamburg</option>
-								<option value="München">München</option>
-								<option value="Köln">Köln</option>
-							</select>
-
-							<output value="#{bean.result}" />
-							 Ende Dropdown auswhl möglichkeiten -->
-
+							<span class="input-group-text col-4" id="Immo-wrapping">Stadt:</span>
+							<p:selectOneMenu id="stadtAuswahl" value="#{MbSuchmaske.stadt}">
+								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
+								<f:selectItem itemLabel="Berlin" itemValue="Berlin" />
+								<f:selectItem itemLabel="Hamburg" itemValue="Hamburg" />
+								<f:selectItem itemLabel="München" itemValue="München" />
+								<f:selectItem itemLabel="Köln" itemValue="Köln"/>
+							
+							</p:selectOneMenu>
 						</div>
 						<h3>Zum verfeinern der Suche:</h3>
 						<H5></H5>
@@ -71,78 +62,75 @@ login.xhtml - Startseite für Navigationsbeispiel
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
 								Minimale Grundfläche</span> <label for="customRange2"
-								class="form-label">qm2</label> <input type="range"
-								class="form-range" min="0" max="10000" id="customRange2"
-								value="#{MbSuchmaske.minGrundflaeche}" label="100%">> </input>
+								class="form-label"></label> 
+						            <h:inputHidden id="minGrundflaeche_id" min="0" max="10000" value="#{MbSuchmaske.minGrundflaeche}"/>
+						            <p:slider for="minGrundflaeche_id" display="output_minGrundflaeche" minValue="0" maxValue="10000" 
+						            class="form-range" displayTemplate="{value} m²"/>
+						            <h:outputText id="output_minGrundflaeche" value="#{MbSuchmaske.minGrundflaeche}"/>		
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
 								Maximale Grundfläche</span> <label for="customRange2"
-								class="form-label">qm2</label> <input type="range"
-								class="form-range" min="0" max="10000" id="customRange2">
-							</input>
+								class="form-label"></label> 
+						            <h:inputHidden id="maxGrundflaeche_id" min="0" max="10000" value="#{MbSuchmaske.maxGrundflaeche}"/>
+						            <p:slider for="maxGrundflaeche_id" display="output_maxGrundflaeche" minValue="0" maxValue="10000" 
+						            class="form-range" displayTemplate="{value} m²"/>
+						            <h:outputText id="output_maxGrundflaeche" value="#{MbSuchmaske.maxGrundflaeche}"/>
 						</div>
 						<h4>Die Wohnfläche:</h4>
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
-								Mindest Wohnfläche</span> <label for="customRange2" class="form-label">qm2</label>
-							<input type="range" class="form-range" min="0" max="1000"
-								id="customRange2"> </input>
+								Minimale Wohnfläche</span> <label for="customRange2"
+								class="form-label"></label> 
+						            <h:inputHidden id="minWohnflaeche_id" min="0" max="1000" value="#{MbSuchmaske.minWohnflaeche}"/>
+						            <p:slider for="minWohnflaeche_id" display="output_minWohnflaeche" minValue="0" maxValue="1000" 
+						            class="form-range" displayTemplate="{value} m²"/>
+						            <h:outputText id="output_minWohnflaeche" value="#{MbSuchmaske.minWohnflaeche}"/>
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
-								Maximale Wohnfläche</span> <label for="customRange2" class="form-label">qm2</label>
-							<input type="range" class="form-range" min="0" max="1000"
-								id="customRange2"> </input>
+								Maximale Wohnfläche</span> <label for="customRange2"
+								class="form-label"></label> 
+						            <h:inputHidden id="maxWohnflaeche_id" min="0" max="1000" value="#{MbSuchmaske.maxWohnflaeche}"/>
+						            <p:slider for="maxWohnflaeche_id" display="output_maxWohnflaeche" minValue="0" maxValue="1000" 
+						            class="form-range" displayTemplate="{value} m²"/>
+						            <h:outputText id="output_maxWohnflaeche" value="#{MbSuchmaske.maxWohnflaeche}"/>
 						</div>
 
-						<h4>Ihr Traumpreis liegt bei</h4>
+						<h4>Preis</h4>
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
-								Immobilienpreis</span> <label for="customRange2" class="form-label">€</label>
-							<input type="range" class="form-range" min="0" max="100"
-								id="customRange2"> </input>
+								Maximaler Immobilienpreis</span> <label for="customRange2"
+								class="form-label"></label> 
+						            <h:inputHidden id="preis_id" min="0" max="1000000" value="#{MbSuchmaske.preis}"/>
+						            <p:slider for="preis_id" display="output_preis" minValue="0" maxValue="1000000" 
+						            class="form-range" displayTemplate="{value} €"/>
+						            <h:outputText id="output_preis" value="#{MbSuchmaske.preis}"/>
 						</div>
 
 					</div>
 
 				</div>
-
+				
 
 
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
-					<!--  
-						<h:commandButton type="submit"
-							class="btn btn-primary  button-split"
-							actionListener="#{MbSuchmaske.insert}" name="update-user"
-							value="Ergebnisse anzeigen!" ajax="false">Suche abschicken
-		 </h:commandButton>
-		 -->
+					
 		 <h:commandButton
-                        value="Button"
-                        actionListener="#{MbSuchmaske.insert}"
-                        styleClass="buttonRentenbescheid" />
+                        value="Suchen!"
+                        actionListener="#{MbSuchmaske.suchErgebnis}" action="resultBoard.xhtml"/>
 					</div>
 				</div>
 
 
 			</h:form>
-			<h:form>
-				<h:inputText value="#{bean.text}" required="true" />
-				<h:selectOneMenu value="#{bean.choice}" required="true">
-					<f:selectItem itemValue="#{null}" />
-					<f:selectItem itemValue="One" />
-					<f:selectItem itemValue="Two" />
-					<f:selectItem itemValue="Three" />
-				</h:selectOneMenu>
-				<h:commandButton value="submit" action="#{bean.submit}" />
-				<h:messages />
-				<h:outputText value="#{bean.result}" />
-			</h:form>
+			
+		
+
 
 
 

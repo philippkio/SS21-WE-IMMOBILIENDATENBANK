@@ -8,7 +8,8 @@ insertBoard.xhtml - Einstellen der Objekte
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 </h:head>
@@ -19,7 +20,7 @@ insertBoard.xhtml - Einstellen der Objekte
 		<ui:define name="title">Insert-Board</ui:define>
 
 		<ui:define name="content">
-			<form>
+			<h:form>
 
 				<h4>Bitte geben Sie alle benötiigten Daten ein die uns helfen
 					könnten Ihre Traumimobilie zu vermarkten.</h4>
@@ -28,113 +29,89 @@ insertBoard.xhtml - Einstellen der Objekte
 
 						<!-- anfang Dropdown auswahl möglichkeiten -->
 						<div class="input-group flex-nowrap">
-							<span class="input-group-text col-4 mb-2" id="Immo-wrapping">Immobilienart:</span>
-							<select name="immobilien_art"
-								class="form-select form-select-lg mb-2"
-								placeholder="Immobilienart_select" value="#{bean.immobilienart}"
-								aria-label=".form-select-lg example"
-								aria-describedby="addon-wrapping" actionListener=XXX>
-								<option value="value0">Klicken zum auswählen!</option>
-								<option value="value1">Eigentumswohnung</option>
-								<option value="value2">Einfamilienhaus</option>
-								<option value="value3">Mehrfamilienhaus</option>
-								<option value="value4">Reihenhaus</option>
-								<option value="value5">Grundstück</option>
-							</select>
+							<span class="input-group-text col-4" id="Immo-wrapping">Immobilienart:</span>
+							<p:selectOneMenu class="coll-5" id="auswahlImmobilienart" value="#{MbSuchmaske.insert_immobilienart}">
+								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
+								<f:selectItem itemLabel="Eigentumswohnung" itemValue="Eigentumswohnung" />
+								<f:selectItem itemLabel="Einfamilienhaus" itemValue="Einfamilienhaus" />
+								<f:selectItem itemLabel="Mehrfamilienhaus" itemValue="Mehrfamilienhaus" />
+								<f:selectItem itemLabel="Reihenhaus" itemValue="Reihenhaus" />
+								<f:selectItem itemLabel="Grundstück" itemValue="Grundstück" />
+							
+							</p:selectOneMenu>
 						</div>
 
 						<div class="input-group flex-nowrap">
-							<span class="input-group-text col-4 mb-2" id="city-wapping">Stadt:</span>
-							<select name="immo-location"
-								class="form-select form-select-lg mb-2"
-								placeholder="Immobilienart_select" value="#{bean.immobilienart}"
-								aria-label=".form-select-lg example"
-								aria-describedby="addon-wrapping">
-								<option value="auswahl">Klicken zum auswählen!</option>
-								<option value="Berlin">Berlin</option>
-								<option value="Hamburg">Hamburg</option>
-								<option value="München">München</option>
-								<option value="Köln">Köln</option>
-							</select>
-
-							<output value="#{bean.result}" />
-							<!-- Ende Dropdown auswhl möglichkeiten -->
+							<span class="input-group-text col-4" id="Immo-wrapping">Stadt:</span>
+							<p:selectOneMenu id="stadtAuswahl" value="#{MbSuchmaske.insert_stadt}">
+								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
+								<f:selectItem itemLabel="Berlin" itemValue="Berlin" />
+								<f:selectItem itemLabel="Hamburg" itemValue="Hamburg" />
+								<f:selectItem itemLabel="München" itemValue="München" />
+								<f:selectItem itemLabel="Köln" itemValue="Köln"/>
+							
+							</p:selectOneMenu>
 						</div>
 
 
 						<div>
 							<h3>Die Anschrift:</h3>
 							<div class="input-group flex-nowrap">
-								<span class="input-group-text col-4 mb-1" id="adress-label">Straße
+								<span class="input-group-text col-4" id="adress-label">Straße
 									und Hausnummer</span>
-								<div class="input-group mb-3">
-									<input type="text" class="form-control col-5"
-										name="outdorgröße" placeholder="Musterstraße, "
-										aria-label="Input field for user ID"
-										aria-describedby="outdor-größe"> </input> <span
-										class="input-group-text"> Nr.</span> <input type="text"
-										class="form-control col-1 " name="outdorgröße"
-										placeholder=" 1" aria-label="Input field for user ID"
-										aria-describedby="outdor-größe"> </input>
+								<div class="input-group">
+									<p:inputText class="form-control col-5" required="true"
+										name="outdorgröße" placeholder="z. B. 'Musterstraße'" 
+										value="#{MbSuchmaske.insert_Strasse}"> </p:inputText> <span
+										class="input-group-text"> Nr.</span> <p:inputText 
+										class="form-control col-1 " required="true" 
+										placeholder="z. B. '1'" value="#{MbSuchmaske.insert_Hausnummer}"> </p:inputText>
 								</div>
 
 
 							</div>
 							<div class="input-group flex-nowrap">
 								<span class="input-group-text col-4" id="postcode-label">Postleizahhl</span>
-								<input type="text" class="form-control col-4" name="12345"
-									placeholder="in quadratmetern"
-									aria-label="Input field for user ID"
-									aria-describedby="outdor-größe"> </input>
+								<p:inputText  class="form-control col-4" required="true" placeholder="z. B. 13158" value="#{MbSuchmaske.insert_Plz}"> </p:inputText>
 							</div>
 
 						</div>
 
-						<div class="input-group flex-nowrap">
-							<span class="input-group-text col-4" id="notes-label">Anmerkungen:</span>
-							<input type="text" class="form-control col-4" name="sonstiges"
-								placeholder="sontiges" aria-label="Input field for user ID"
-								aria-describedby="outdor-größe"> </input>
-						</div>
+						
 
 						<div class="input-group col-4">
 							<span class="input-group-text">Objektbeschreibung</span>
-							<textarea class="form-control col-4" aria-label="With textarea">
-						  </textarea>
+							<p:inputTextarea class="form-control col-4" required="true" placeholder="Beschreiben Sie die Immobile." value="#{MbSuchmaske.insert_Beschreibung}">
+						  </p:inputTextarea>
 						</div>
 
 
 						<div class="input-group flex-nowrap">
-							<span class="input-group-text col-4" id="IDsize-label">Indorgröße</span>
-							<input type="text" class="form-control col-4" name="indorgröße"
-								placeholder="in quadratmetern"
-								aria-label="Input field for user ID"
-								aria-describedby="indor-größe"> </input>
+							<span class="input-group-text col-4" id="IDsize-label">Wohnfläche</span>
+							<p:inputText  class="form-control col-4" required="true" placeholder="in quadratmetern" value="#{MbSuchmaske.insert_Wohnflaeche}"> </p:inputText>
 						</div>
 
 						<div class="input-group flex-nowrap">
-							<span class="input-group-text col-4" id="ODsize-label">Outdorgröße</span>
-							<input type="text" class="form-control col-4" name="outdorgröße"
-								placeholder="in quadratmetern"
-								aria-label="Input field for user ID"
-								aria-describedby="outdor-größe"> </input>
+							<span class="input-group-text col-4" id="ODsize-label">Grundfläche</span>
+							<p:inputText class="form-control col-4" required="true" 
+								placeholder="in quadratmetern" value="#{MbSuchmaske.insert_Grundflaeche}"> </p:inputText>
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="price-label">Preis</span>
-							<input type="text" class="form-control col-4"
-								name="Ihr wunsch Preis" placeholder="in quadratmetern"
-								aria-label="Input field for user ID"
-								aria-describedby="immo-preis"> </input>
+							<p:inputText class="form-control col-4" required="true"
+								 placeholder="in Euro" value="#{MbSuchmaske.insert_Preis}"> </p:inputText>
 						</div>
-
+						
+						<!-- 
 						<div class="input-group flex-nowrap col-4">
 							<span class="input-group-text col-4" id="picture-label">ImmobilienBild</span>
 							File name: &#160;
 							<h:inputFile id="id_inpFile" validator="#{mb.validateFile}"
-								label="File name" columns="50" value="#{mb.part}" />
+								label="File name" columns="50" value="#" />
 							<p />
 						</div>
+						-->
 
 
 					</div>
@@ -147,14 +124,15 @@ insertBoard.xhtml - Einstellen der Objekte
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
-						<button type="submit" class="btn btn-primary  button-split"
-							action="#{bean.submit}" name="update-user" value="clicked">Insert
-						</button>
+						<h:commandButton 
+							value="Anlegen!"
+                        actionListener="#{MbSuchmaske.insert}">
+						</h:commandButton>
 					</div>
 				</div>
 
 
-			</form>
+			</h:form>
 
 		</ui:define>
 	</ui:composition>

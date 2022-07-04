@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16563360932330" configfile="/Immobiliendatenbank/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16563360932330" configfile="/Immobiliendatenbank/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf16564496752990" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf16564496752991 pf16564496752992" path="/insertBoard.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user.xhtml" id="pf16564496752993" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16564496752991" path="/user.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin.xhtml" id="pf16564496752994" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf16564496752992" path="/admin.xhtml"/>
+  <links id="pf16564496752991" target="pf16564496752993" source="pf16564496752990" outcome="user"/>
+  <links id="pf16564496752992" target="pf16564496752994" source="pf16564496752990" outcome="admin" redirect="true"/>
+</pageflow:Pageflow>

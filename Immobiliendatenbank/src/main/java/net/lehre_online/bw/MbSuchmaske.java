@@ -17,11 +17,7 @@ import jakarta.faces.event.ActionEvent;
 import jakarta.inject.Named;
 
 /**
- * Backing bean der JSF-Seite browse.xhtml
- *
- * @author Wolfgang Lang
- * @version 2021-07-30
- * @see "Foliensatz zur Vorlesung"
+ * Backing bean aller JSF-Seiten 
  */
 @Named("MbSuchmaske")
 @RequestScoped
@@ -33,7 +29,11 @@ public class MbSuchmaske implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	final String SQL_SELECT = "select ID, city, adress, housenumber, living_area, lot_size, price, description, picture, zip, property_type "
-			+ "immobilien from db";
+			+ "from immobilien";
+	
+	
+	
+	
 
 	private boolean connected = false;
 	private boolean prevButtonDisabled = true;
@@ -50,16 +50,38 @@ public class MbSuchmaske implements Serializable {
 	private ResultSet rs = null;
 	// private PreparedStatement ps = null;
 
-	private String immobilienart = null;
-	private String stadt;
+	private String immobilienart =null;
+	private String stadt=null;
 	private int minGrundflaeche;
 	private int maxGrundflaeche;
 	private int minWohnflaeche;
 	private int maxWohnflaeche;
+	private int preis;
+	private String insert_immobilienart =null;
+	private String insert_stadt=null;
+	private int insert_Grundflaeche;
+	private int insert_Wohnflaeche;
+	private int insert_Preis;
+	private String insert_Hausnummer= null;
+	private String insert_Strasse=null;
+	private int insert_Plz;
+	private String insert_Beschreibung=null;
+	private String ausgabe_stadt=null;
+	private String ausgabe_immobilienart=null;
+	private String ausgabe_strasse=null;
+	private String ausgabe_hausnummer=null;
+	private int ausgabe_preis;
+	private int ausgabe_plz;
+	private int ausgabe_grundflaeche;
+	private int ausgabe_wohnflaeche;
+	private String ausgabe_beschreibung=null;
+	
+	
 
 	/*--------------------------------------------------------------------------*/
 	public MbSuchmaske() {
 		System.out.println("MbSuchmaske.<init>...");
+		System.out.println("immobilienart anfang: "+immobilienart+ "und Stadt"+stadt+" Grundfläche: "+ minGrundflaeche);
 	}
 
 	@PostConstruct
@@ -81,6 +103,14 @@ public class MbSuchmaske implements Serializable {
 
 	public void setImmobilienart(String immobilienart) {
 		this.immobilienart = immobilienart;
+	}
+
+	public int getPreis() {
+		return preis;
+	}
+
+	public void setPreis(int preis) {
+		this.preis = preis;
 	}
 
 	public String getStadt() {
@@ -139,31 +169,241 @@ public class MbSuchmaske implements Serializable {
 		connected = b;
 	}
 
-	/*--------------------------------------------------------------------------*/
+	/*----------------------------------Ausgabewerte fuer resultBoard----------------------------------------*/
 
-	private void actionevent2(ActionEvent event) {
-		System.out.println("Hallo Button! Fuck You");
+	
+	
+	public String getAusgabe_stadt() {
+		return ausgabe_stadt;
+	}
+
+	public String getAusgabe_immobilienart() {
+		return ausgabe_immobilienart;
+	}
+
+	public void setAusgabe_immobilienart(String ausgabe_immobilienart) {
+		this.ausgabe_immobilienart = ausgabe_immobilienart;
+	}
+
+	public String getAusgabe_strasse() {
+		return ausgabe_strasse;
+	}
+
+	public void setAusgabe_strasse(String ausgabe_strasse) {
+		this.ausgabe_strasse = ausgabe_strasse;
+	}
+
+	public String getAusgabe_hausnummer() {
+		return ausgabe_hausnummer;
+	}
+
+	public void setAusgabe_hausnummer(String ausgabe_hausnummer) {
+		this.ausgabe_hausnummer = ausgabe_hausnummer;
+	}
+
+	public int getAusgabe_preis() {
+		return ausgabe_preis;
+	}
+
+	public void setAusgabe_preis(int ausgabe_preis) {
+		this.ausgabe_preis = ausgabe_preis;
+	}
+
+	public int getAusgabe_plz() {
+		return ausgabe_plz;
+	}
+
+	public void setAusgabe_plz(int ausgabe_plz) {
+		this.ausgabe_plz = ausgabe_plz;
+	}
+
+	public int getAusgabe_grundflaeche() {
+		return ausgabe_grundflaeche;
+	}
+
+	public void setAusgabe_grundflaeche(int ausgabe_grundflaeche) {
+		this.ausgabe_grundflaeche = ausgabe_grundflaeche;
+	}
+
+	public int getAusgabe_wohnflaeche() {
+		return ausgabe_wohnflaeche;
+	}
+
+	public void setAusgabe_wohnflaeche(int ausgabe_wohnflaeche) {
+		this.ausgabe_wohnflaeche = ausgabe_wohnflaeche;
+	}
+
+	public String getAusgabe_beschreibung() {
+		return ausgabe_beschreibung;
+	}
+
+	public void setAusgabe_beschreibung(String ausgabe_beschreibung) {
+		this.ausgabe_beschreibung = ausgabe_beschreibung;
+	}
+
+	public void setAusgabe_stadt(String ausgabe_stadt) {
+		this.ausgabe_stadt = ausgabe_stadt;
 	}
 	
-	private void showData() throws SQLException {
-		setImmobilienart(rs.getString("property_type"));
-		setStadt(rs.getString("city"));
-		//setVorname(rs.getString("vorname"));
-		//setGeburtstag(rs.getDate("geburtstag"));
-		//setMasterstudent(rs.getBoolean("masterstudent"));
+	/*-------------------------------Eingabewerte von insertBoard-------------------------------------------*/
+
+	public String getInsert_immobilienart() {
+		return insert_immobilienart;
+	}
+
+	public void setInsert_immobilienart(String insert_immobilienart) {
+		this.insert_immobilienart = insert_immobilienart;
+	}
+
+	public String getInsert_stadt() {
+		return insert_stadt;
+	}
+
+	public void setInsert_stadt(String insert_stadt) {
+		this.insert_stadt = insert_stadt;
+	}
+
+	public int getInsert_Grundflaeche() {
+		return insert_Grundflaeche;
+	}
+
+	public void setInsert_Grundflaeche(int insert_Grundflaeche) {
+		this.insert_Grundflaeche = insert_Grundflaeche;
+	}
+
+	public int getInsert_Wohnflaeche() {
+		return insert_Wohnflaeche;
+	}
+
+	public void setInsert_Wohnflaeche(int insert_Wohnflaeche) {
+		this.insert_Wohnflaeche = insert_Wohnflaeche;
+	}
+
+	public int getInsert_Preis() {
+		return insert_Preis;
+	}
+
+	public void setInsert_Preis(int insert_Preis) {
+		this.insert_Preis = insert_Preis;
+	}
+
+	public String getInsert_Hausnummer() {
+		return insert_Hausnummer;
+	}
+
+	public void setInsert_Hausnummer(String insert_Hausnummer) {
+		this.insert_Hausnummer = insert_Hausnummer;
+	}
+
+	public String getInsert_Strasse() {
+		return insert_Strasse;
+	}
+
+	public void setInsert_Strasse(String insert_Strasse) {
+		this.insert_Strasse = insert_Strasse;
+	}
+
+
+	public int getInsert_Plz() {
+		return insert_Plz;
+	}
+
+	public void setInsert_Plz(int insert_Plz) {
+		this.insert_Plz = insert_Plz;
+	}
+
+	public String getInsert_Beschreibung() {
+		return insert_Beschreibung;
+	}
+
+	public void setInsert_Beschreibung(String insert_Beschreibung) {
+		this.insert_Beschreibung = insert_Beschreibung;
 	}
 
 	/*--------------------------------------------------------------------------*/
+	
+	private void showData() throws SQLException {
+		//setImmobilienart(rs.getString("property_type"));
+		//setStadt(rs.getString("city"));
+		
+		setAusgabe_strasse        ( rs.getString    ( "adress" ) );
+		setAusgabe_hausnummer         ( rs.getString ( "housenumber") );
+		setAusgabe_plz      ( rs.getInt ( "zip") );
+		setAusgabe_stadt   ( rs.getString   ( "city") );
+		setAusgabe_wohnflaeche( rs.getInt( "living_area") );
+		setAusgabe_grundflaeche( rs.getInt( "lot_size") );
+		setPreis( rs.getInt( "price") );
+		setAusgabe_immobilienart( rs.getString( "property_type") );
+		setAusgabe_beschreibung( rs.getString( "description") );
+		
+		
+		  
+		
+	}
 
+	/*--------------------------------------------------------------------------*/
+	public void suchErgebnis() {
+		connect();
+		if (DatabaseHelper != null)
+			con = DatabaseHelper.getCon();
+		if (con != null) {
+			try {
+				String sQlEingaben =  
+						"SELECT ID,zip,city,adress,housenumber,living_area,lot_size,price,description,property_type FROM immobilien "
+						+ "WHERE ID>=0 AND zip>=0 AND city='"+stadt+"' AND living_area>="+minWohnflaeche+" AND living_area<="+maxWohnflaeche+" AND lot_size>="+minGrundflaeche+" AND lot_size<="+maxGrundflaeche+" AND price<="+preis+" AND property_type='"+immobilienart+"';";
+				
+				stm = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+				rs = stm.executeQuery(sQlEingaben);
+			
+				System.out.println("Zu Ihrer Suche passende Immobilien sind: ");
+				while (rs.next()) {
+					System.out.print("ID: "+rs.getInt("ID")+" , ");
+					System.out.print("Straße: "+rs.getString("adress")+" , ");
+			        System.out.print("Hausnummer: "+rs.getString("housenumber")+" , ");
+					System.out.print("PLZ: "+rs.getInt("zip")+" , ");
+					ausgabe_plz=rs.getInt("zip");
+			        System.out.print("Stadt: "+rs.getString("city")+" , ");
+			        ausgabe_stadt=rs.getString("city");
+			        System.out.print("Wohnfläche: "+rs.getInt("living_area")+" , ");
+			        ausgabe_wohnflaeche=rs.getInt("living_area");
+			        System.out.print("Grundfläche: "+rs.getInt("lot_size")+" , ");
+			        ausgabe_grundflaeche=rs.getInt("lot_size");
+			        System.out.print("Preis: "+rs.getInt("price")+" , ");
+			        ausgabe_preis=rs.getInt("price");
+			        System.out.print("Immobilienart: "+rs.getString("property_type")+"\n");
+			        ausgabe_immobilienart=rs.getString("property_type");
+			        System.out.print("Beschreibung: "+rs.getString("description")+" , ");
+			        
+			        
+			    }
+						
+			
+				
+				
+				stm.close();
+				} catch (SQLException ex) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "SQLException", ex.getLocalizedMessage()));
+			System.out.println("Error: " + ex);
+			ex.printStackTrace();
+			System.out.println("Insert catch...");
+		}
+			}
+		
+		
+	}
+	
+	
+	
 	/**
 	 * Verbindung zur Datenbank herstellen und disconnect button und browse buttons
 	 * freigeben
 	 * 
 	 * @param ae ActionEvent
 	 */
-	public void connect(ActionEvent ae) {
+	public void connect() {
 
-		// out.println( "connect()..." );
+		 System.out.println( "connect()..." );
 
 		if (DatabaseHelper != null)
 			con = DatabaseHelper.getCon();
@@ -187,6 +427,7 @@ public class MbSuchmaske implements Serializable {
 					"Exception", "Keine Verbindung zur Datenbank (Treiber nicht gefunden?)"));
 			System.out.println("Keine Verbingung zur Datenbank");
 		}
+		//insert();
 	}
 
 	/*--------------------------------------------------------------------------*/
@@ -195,7 +436,7 @@ public class MbSuchmaske implements Serializable {
 	 * Verbindung zur Datenbank beenden
 	 * 
 	 * @param ae ActionEvent
-	 */
+	 
 	public void disconnect(ActionEvent ae) {
 
 		if (con != null) {
@@ -236,6 +477,9 @@ public class MbSuchmaske implements Serializable {
 		try {
 			if ((rs != null) && rs.previous()) {
 				showData();
+
+		       
+		        
 				nextButtonDisabled = false;
 			} else
 				prevButtonDisabled = true;
@@ -278,23 +522,34 @@ public class MbSuchmaske implements Serializable {
 	 * 
 	 * @param ae ActionEvent
 	 */
-	public void insert(ActionEvent event) {
+	public void insert() {
 		
 		System.out.println("Insert entered...");
+		
+		connect();
 
 		try {
+			System.out.println("Insert try entered...");
 			// if( ps == null ){
-			String sQl = "INSERT INTO immobilien( " + " city ) "
-					+ "VALUES ( ? )";
+			String sQl = "INSERT INTO immobilien (city, adress, housenumber, living_area, lot_size, price, description, zip, property_type)"
+					+ " "
+					+ "VALUES (?, ?, ?, ?, ? , ?, ? , ?, ? )";
+			System.out.println("Insert sql statement...");
 			PreparedStatement ps = con.prepareStatement(sQl);
 			// }
+			System.out.println("Die stadt ist vorm SQL: "+insert_stadt);
+			
+			ps.setString(1, insert_stadt);
+			ps.setString(2, insert_Strasse);
+			ps.setString(3, insert_Hausnummer);
+			ps.setInt(4, insert_Wohnflaeche);
+			ps.setInt(5, insert_Grundflaeche);
+			ps.setInt(6, insert_Preis);
+			ps.setString(7, insert_Beschreibung);
+			ps.setInt(8, insert_Plz);
+			ps.setString(9, insert_immobilienart);
 
-			ps.setString(1, "Test");
-			//ps.setString(2, name);
-			//ps.setString(3, vorname);
-			//ps.setDate(4, geburtstag);
-			//ps.setBoolean(5, masterstudent);
-
+			System.out.println("Insert 2...");
 			int n = ps.executeUpdate();
 			if (n == 1) {
 				System.out.println("O.K.,  Datensatz eingefügt.");
@@ -302,6 +557,7 @@ public class MbSuchmaske implements Serializable {
 						new FacesMessage(FacesMessage.SEVERITY_INFO, "O. K.", "Ein Datensatz erfolgreich eingefügt."));
 			}
 
+			System.out.println("Insert 3...");
 			ps.close();
 
 			// Result set neu aufbauen:
@@ -311,7 +567,10 @@ public class MbSuchmaske implements Serializable {
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "SQLException", ex.getLocalizedMessage()));
 			System.out.println("Error: " + ex);
 			ex.printStackTrace();
+			System.out.println("Insert catch...");
 		}
+		System.out.println("Insert exit...");
+		immobilienart = null;
 	}
 
 	/*--------------------------------------------------------------------------*/

@@ -56,6 +56,8 @@ public class DatabaseConection implements Serializable {
 	   * @param s : logfile pfad und name
 	   */
 	  public void setLogfile( String s ){ 
+		  
+		  System.out.println("entering setLogFile...");
 	    
 	    logfile = s; 
 	    
@@ -104,6 +106,7 @@ public class DatabaseConection implements Serializable {
 	   * @param s : Meldung
 	   */
 	  public void log( String s ){
+		  System.out.println("entering log...");
 	    if( pwLog != null ){ 
 	      pwLog.println( new Date().toString() + ": " + s ); pwLog.flush(); 
 	    }
@@ -117,6 +120,7 @@ public class DatabaseConection implements Serializable {
 	   * @param con : Aktuelle connection zur Datenbank
 	   */
 	  public void closeConnection( Connection con ){
+		  System.out.println("entering closeConection...");
 	    try {
 	      log( "Close connection..." );
 	      con.close();
@@ -137,11 +141,12 @@ public class DatabaseConection implements Serializable {
 	   * @return Connection-Objekt
 	   */
 	  public Connection getCon(){ 
+		  System.out.println("entering Conection getCon...");
 	    
 	    log( "Get connection..." );
-	    
+	    System.out.println("Conection getCon 1...");
 	    Connection con = null;
-	    
+	    System.out.println("Conection getCon 2...");
 	    try{ 
 	      if( use_pool ) {
 	        if( mds_pool == null) {
@@ -159,13 +164,15 @@ public class DatabaseConection implements Serializable {
 	        }
 	      }
 	      else { // neue Connection erzeugen
+	    	  System.out.println("Conection getCon neue conection anlegen...");
 	        mds = new MysqlDataSource();
 	        mds.setURL( constr );
 	        mds.setUser( user ); mds.setPassword( pw ); 
 	        mds.setLogWriter( pwLog );
-	        mds.setServerTimezone( TIMEZONE );//brauchen wir das?
+	        mds.setServerTimezone( TIMEZONE );
 	        con = mds.getConnection();
 	        con.setAutoCommit( true );
+	        System.out.println("Conection getCon neue conection angelegt...");
 	      }
 	      
 	      logDebugInfo( con );
@@ -177,6 +184,7 @@ public class DatabaseConection implements Serializable {
 	      log( "SQLException!" );          
 	      while( ex != null ) { ex.printStackTrace(); ex = ex.getNextException(); } 
 	    }
+	    System.out.println("Conection getCon ende...");
 	      
 	    return con;
 	  }

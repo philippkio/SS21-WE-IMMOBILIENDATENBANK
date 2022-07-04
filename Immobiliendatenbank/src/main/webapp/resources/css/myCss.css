@@ -9,40 +9,6 @@ div {
     border: 2px solid white;
 }
 
-/* flash messages: */
-.alert-error {
-    margin: 10px 50px 0px 50px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-.alert-msg-error {
-    display: flex;
-}
-.flash-close {
-    border-radius: 10%;
-    margin: 5px 5px 5px 5px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-.alert-success {
-    margin: 10px 50px 0px 50px;
-    text-align: center;
-    display: block;
-    justify-content: center;
-    position: relative;
-}
-.alert-msg-success {
-    display: block;
-}
-.flash-ok {
-    border-radius: 10%;
-    margin: 10px 0px 0px 0px;
-    padding: 0px 25px 0pc 25px;
-    align-items: center;
-}
 /* general-css: */
 h1 {
     display: flex;
@@ -68,13 +34,6 @@ h4 {
     font-size: 20px;
 }
 
-  
-    
-#h4-pwd {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .input-group {
     margin: 30px 0px 30px 0px;
 }
@@ -109,6 +68,11 @@ h4 {
     margin: 25px 0px 50px 0px;
     font-weight: 600;
     font-size: 20px;
+}
+.mybutton.ui-button-text-icon-left.ui-button-text {
+     margin-left: 10px;
+     margin-bottom: 10px;
+     width: 200px;
 }
 .container{
 	 display: flex;
@@ -156,12 +120,6 @@ h4 {
 }
 .add-user-form {
     margin-top: 0px;
-}
-.button-split {
-    display: inline-block;
-}
-.split-button {
-    float: right;
 }
 
 .centered {
@@ -539,3 +497,5 @@ pre {
     border: 1px solid green;
     float: left; /* add this */
 }
+
+

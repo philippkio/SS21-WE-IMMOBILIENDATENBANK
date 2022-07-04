@@ -21,8 +21,7 @@ public class DatabaseHelper {
 	  
 	  private DatabaseConection mbDb = null;
 
-	  //@Inject
-	  //private FacesContext fc; Klappt nicht
+	  
 	  
 	  /*--------------------------------------------------------------------------*/
 	  
@@ -67,9 +66,7 @@ public class DatabaseHelper {
 				}
 			}
 					
-	    /*return FacesContext.getCurrentInstance().getApplication().
-	           evaluateExpressionGet( FacesContext.getCurrentInstance(),
-	           "#{" + DATABASE_BEAN_NAME + ".con}", Connection.class );*/
+	  
 			
 			log( TAG + ": ...exiting" );
 			return con;
@@ -94,7 +91,8 @@ public class DatabaseHelper {
 	   *
 	   * @param sBean Name der Bean
 	   * @return : Referenz auf Managed Bean
-	   */
+	   * */
+	   
 	  public Object getBean( String sBean ){
 	      
 	  	Object o = null;
@@ -118,40 +116,9 @@ public class DatabaseHelper {
 	      return o; */      
 	    
 	    return o;
+	    
 	  }
 	  
-	  /*--------------------------------------------------------------------------*/
-	  
-	  /**
-	   * Verschlüsselung eines Passworts
-	   * Aus Kennung und Passwort wird mittels SHA-Hash das verschlüsselete Passwort
-	   * generiert. 
-	   * @param user Kennung
-	   * @param pw   Passwort im Klartext
-	   * @return out Verschlüsseltes Passwort oder unverschlüsselte 
-	   *             Input-Parameter bei Fehler
-	   */
-	  public String cryptpw( String user, String pw ) {
-	    
-	    String in = user + pw;
-	    String out = in;
-	    
-	    try{
-	      MessageDigest md = MessageDigest.getInstance( "SHA" );
-	      byte[] bHash = md.digest( in.getBytes() ); // oder getBytes( "UTF-8" ) ?
-	      StringBuffer sb = new StringBuffer();
-	      
-	      for( int i = 0; i < bHash.length; i++ ){
-	        sb.append( Integer.toHexString( 0xF0 & bHash[i] ).charAt(0) );
-	        sb.append( Integer.toHexString( 0x0F & bHash[i] ) );
-	      }
-	      out = sb.toString();
-	    }
-	    catch( NoSuchAlgorithmException ex ){
-	      ex.printStackTrace();   
-	    }
-	    
-	    return out;
-	  }
+
 	}
 

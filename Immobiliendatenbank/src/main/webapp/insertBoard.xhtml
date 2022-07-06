@@ -20,7 +20,7 @@ insertBoard.xhtml - Einstellen der Objekte
 		<ui:define name="title">Insert-Board</ui:define>
 
 		<ui:define name="content">
-			<h:form>
+			<h:form enctype="multipart/form-data">
 
 				<h4>Bitte geben Sie alle benötiigten Daten ein die uns helfen
 					könnten Ihre Traumimobilie zu vermarkten.</h4>
@@ -30,26 +30,31 @@ insertBoard.xhtml - Einstellen der Objekte
 						<!-- anfang Dropdown auswahl möglichkeiten -->
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="Immo-wrapping">Immobilienart:</span>
-							<p:selectOneMenu class="coll-5" id="auswahlImmobilienart" value="#{MbSuchmaske.insert_immobilienart}">
+							<p:selectOneMenu class="coll-5" id="auswahlImmobilienart"
+								value="#{MbSuchmaske.insert_immobilienart}">
 								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
-								<f:selectItem itemLabel="Eigentumswohnung" itemValue="Eigentumswohnung" />
-								<f:selectItem itemLabel="Einfamilienhaus" itemValue="Einfamilienhaus" />
-								<f:selectItem itemLabel="Mehrfamilienhaus" itemValue="Mehrfamilienhaus" />
+								<f:selectItem itemLabel="Eigentumswohnung"
+									itemValue="Eigentumswohnung" />
+								<f:selectItem itemLabel="Einfamilienhaus"
+									itemValue="Einfamilienhaus" />
+								<f:selectItem itemLabel="Mehrfamilienhaus"
+									itemValue="Mehrfamilienhaus" />
 								<f:selectItem itemLabel="Reihenhaus" itemValue="Reihenhaus" />
 								<f:selectItem itemLabel="Grundstück" itemValue="Grundstück" />
-							
+
 							</p:selectOneMenu>
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="Immo-wrapping">Stadt:</span>
-							<p:selectOneMenu id="stadtAuswahl" value="#{MbSuchmaske.insert_stadt}">
+							<p:selectOneMenu id="stadtAuswahl"
+								value="#{MbSuchmaske.insert_stadt}">
 								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
 								<f:selectItem itemLabel="Berlin" itemValue="Berlin" />
 								<f:selectItem itemLabel="Hamburg" itemValue="Hamburg" />
 								<f:selectItem itemLabel="München" itemValue="München" />
-								<f:selectItem itemLabel="Köln" itemValue="Köln"/>
-							
+								<f:selectItem itemLabel="Köln" itemValue="Köln" />
+
 							</p:selectOneMenu>
 						</div>
 
@@ -61,57 +66,67 @@ insertBoard.xhtml - Einstellen der Objekte
 									und Hausnummer</span>
 								<div class="input-group">
 									<p:inputText class="form-control col-5" required="true"
-										name="outdorgröße" placeholder="z. B. 'Musterstraße'" 
-										value="#{MbSuchmaske.insert_Strasse}"> </p:inputText> <span
-										class="input-group-text"> Nr.</span> <p:inputText 
-										class="form-control col-1 " required="true" 
-										placeholder="z. B. '1'" value="#{MbSuchmaske.insert_Hausnummer}"> </p:inputText>
+										name="outdorgröße" placeholder="z. B. 'Musterstraße'"
+										value="#{MbSuchmaske.insert_Strasse}">
+									</p:inputText>
+									<span class="input-group-text"> Nr.</span>
+									<p:inputText class="form-control col-1 " required="true"
+										placeholder="z. B. '1'"
+										value="#{MbSuchmaske.insert_Hausnummer}">
+									</p:inputText>
 								</div>
 
 
 							</div>
 							<div class="input-group flex-nowrap">
 								<span class="input-group-text col-4" id="postcode-label">Postleizahhl</span>
-								<p:inputText  class="form-control col-4" required="true" placeholder="z. B. 13158" value="#{MbSuchmaske.insert_Plz}"> </p:inputText>
+								<p:inputText class="form-control col-4" required="true"
+									placeholder="z. B. 13158" value="#{MbSuchmaske.insert_Plz}">
+								</p:inputText>
 							</div>
 
 						</div>
 
-						
+
 
 						<div class="input-group col-4">
 							<span class="input-group-text">Objektbeschreibung</span>
-							<p:inputTextarea class="form-control col-4" required="true" placeholder="Beschreiben Sie die Immobile." value="#{MbSuchmaske.insert_Beschreibung}">
-						  </p:inputTextarea>
+							<p:inputTextarea class="form-control col-4" required="true"
+								placeholder="Beschreiben Sie die Immobile."
+								value="#{MbSuchmaske.insert_Beschreibung}">
+							</p:inputTextarea>
 						</div>
 
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="IDsize-label">Wohnfläche</span>
-							<p:inputText  class="form-control col-4" required="true" placeholder="in quadratmetern" value="#{MbSuchmaske.insert_Wohnflaeche}"> </p:inputText>
+							<p:inputText class="form-control col-4" required="true"
+								placeholder="in quadratmetern"
+								value="#{MbSuchmaske.insert_Wohnflaeche}">
+							</p:inputText>
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="ODsize-label">Grundfläche</span>
-							<p:inputText class="form-control col-4" required="true" 
-								placeholder="in quadratmetern" value="#{MbSuchmaske.insert_Grundflaeche}"> </p:inputText>
+							<p:inputText class="form-control col-4" required="true"
+								placeholder="in quadratmetern"
+								value="#{MbSuchmaske.insert_Grundflaeche}">
+							</p:inputText>
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="price-label">Preis</span>
 							<p:inputText class="form-control col-4" required="true"
-								 placeholder="in Euro" value="#{MbSuchmaske.insert_Preis}"> </p:inputText>
+								placeholder="in Euro" value="#{MbSuchmaske.insert_Preis}">
+							</p:inputText>
 						</div>
-						
-						<!-- 
-						<div class="input-group flex-nowrap col-4">
-							<span class="input-group-text col-4" id="picture-label">ImmobilienBild</span>
-							File name: &#160;
-							<h:inputFile id="id_inpFile" validator="#{mb.validateFile}"
-								label="File name" columns="50" value="#" />
-							<p />
+
+						<div class="card">
+							<h5>Foto hinzufügen:</h5>
+							<p:fileUpload value="#{MbSuchmaske.file}" mode="simple"
+								skinSimple="true" />
+
 						</div>
-						-->
 
 
 					</div>
@@ -124,9 +139,8 @@ insertBoard.xhtml - Einstellen der Objekte
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
-						<h:commandButton 
-							value="Anlegen!"
-                        actionListener="#{MbSuchmaske.insert}">
+						<h:commandButton value="Anlegen!" ajax="false"
+							actionListener="#{MbSuchmaske.insert}">
 						</h:commandButton>
 					</div>
 				</div>

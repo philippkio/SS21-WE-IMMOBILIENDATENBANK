@@ -4,128 +4,217 @@
 <!-- ===========================================================================
 login.xhtml - Startseite für Navigationsbeispiel                  
 ============================================================================ -->
-                     
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<style type="text/css">
+.product-item .product-item-content {
+	border: 1px solid var(- -surface-d);
+	border-radius: 3px;
+	margin: .3rem;
+	text-align: center;
+	padding: 2rem 0;
+}
+
+.product-item .product-image {
+	width: 50%;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+}
+</style>
 
 <h:head>
 
-	 </h:head>
+</h:head>
 
 <h:body>
-<ui:composition template="/masterLayout.xhtml">
+	<ui:composition template="/masterLayout.xhtml">
 
-<ui:define name="title">Suchergebnisse</ui:define>
+		<ui:define name="title">Suchergebnisse</ui:define>
 
-<ui:define name="content">
-
-
-
- <!-- ==========Insert  board============== -->
-
-   
-   
-   	<h4>Hier finden Sie alle Objete die auf Ihre Anfrage passen:</h4>
-		
-		
-<div class="container overflow-hidden">
-	<div class="row gy-9">
-	
-		
-		  <div class="text flex-nowrap col-6">
-	            <span class="text col-3"><h3>Art der Immobiele</h3></span>
-	            <!--  h:outputTextfield class= "text" value="#{MbSuchmaske.immobilienart}" name="Test" -->
-	            <h:outputText value="#{MbSuchmaske.ausgabe_immobilienart}">
-					 
-				</h:outputText>
-	            
-	      </div>
-	        <div class="text flex-nowrap col-6">
-	            <span class="text col-3"><h3>Ort der Immobilie</h3></span>
-	            <h:outputText value="#{MbSuchmaske.ausgabe_stadt}"></h:outputText>
-	        </div>
-	        
-	        <div class="text flex-nowrap col-6">
-	            <span class="text col-3"><h3>Anschrift</h3></span>
-	            <h:outputText value="Strasse"></h:outputText>
-	            <h:outputText value="5D"></h:outputText>
-	      </div>
-	        <div class="text flex-nowrap col-6">
-	            <span class="text col-3"><h3>Preis der Immobile</h3></span>
-	            <h:outputText value="#{MbSuchmaske.ausgabe_preis}"></h:outputText>
-	        </div>
-	        
-	        <div class="text flex-nowrap col-6">
-	            <span class="text col-3"><h3>Wohnfläche</h3></span>
-	            <h:outputText value="#{MbSuchmaske.ausgabe_wohnflaeche}"></h:outputText>
-	      </div>
-	        <div class="text flex-nowrap col-6">
-	            <span class="text col-3"><h3>Grundfläche</h3></span>
-	            <h:outputText value="#{MbSuchmaske.ausgabe_grundflaeche}"></h:outputText>
-	        </div>
-	        
-	     
-	        
-        
-        
-	
-	<div>
-	<div class="text flex-nowrap ">
-	            <span class="text "><h3>Beschreibung </h3></span>
-	            <output class= "text">
-	            <h5> Ruhig gelegenes Einfamilienhaus des gehobenen Segmentes. In diesem neuen Eigenheim werden Sie sich mit bestimmtheit Wohlfühlen und Platz für Ihre gesammte Familie finden.
-	            </h5>
-	            </output>
-	      </div>
-	      
-		<h5> Ein Blick auf die Immobilie: </h5>
-		<img src="Bildschirmfoto 2022-06-28 um 10.40.36.png" class="img-fluid center" alt="">	</img>
-		<h:graphicImage library="img" name="Bildschirmfoto 2022-06-28 um 10.40.36.png" style="width:500px;height:500px;"/>
-		<h:graphicImage library="img" name="Bildschirmfoto 2022-06-28 um 10.46.57.png" style="width:500px;height:500px;"/>
-	</div>
-	
-	
-	
-	
-	<h:commandButton value="&lt;&lt;" disabled="#{mbBrowse.prevButtonDisabled}"
-                     title="Zurück blättern"  style="font-size: 130%;"
-                     actionListener="#{MbSuchmaske.prev}"/>
-    <h:commandButton value="&gt;&gt;" disabled="#{mbBrowse.nextButtonDisabled}"
-                     title="Vorwärts blättern" style="font-size: 130%;"
-                     actionListener="#{MbSuchmaske.next}"/>
-	
-					
-					
-					
-					
-					
-		
-   
-		 <nav aria-label="Page navigation example">
-		  <ul class="pagination justify-content-center">
-			 <li class="page-item disabled">
-			   <a class="page-link">Previous</a>
-				 </li>
-				  <li class="page-item"><a class="page-link" href="#">1</a></li>
-				  <li class="page-item"><a class="page-link" href="#">2</a></li>
-				  <li class="page-item"><a class="page-link" href="#">3</a></li>
-				  <li class="page-item">
-			    <a class="page-link" href="#">Next</a>
-			 </li>
-		  </ul>
-		</nav>
-
-	</div>
-</div>
+		<ui:define name="content">
 
 
- </ui:define>
-  </ui:composition>
 
- </h:body>
- </html>
+			<!-- ==========Insert  board============== -->
+
+
+
+			<h4>Hier finden Sie alle Objete die auf Ihre Anfrage passen:</h4>
+
+
+			<div class="container overflow-hidden">
+				<div class="row gy-9">
+
+
+					<div class="text flex-nowrap col-6">
+						<span class="text col-3"><h3>Art der Immobiele</h3></span>
+						<!--  h:outputTextfield class= "text" value="#{MbSuchmaske.immobilienart}" name="Test" -->
+						<h:outputText value="#{MbSuchmaske.ausgabe_immobilienart}">
+
+						</h:outputText>
+
+					</div>
+					<div class="text flex-nowrap col-6">
+						<span class="text col-3"><h3>Ort der Immobilie</h3></span>
+						<h:outputText value="#{MbSuchmaske.ausgabe_stadt}"></h:outputText>
+					</div>
+
+					<div class="text flex-nowrap col-6">
+						<span class="text col-3"><h3>Anschrift</h3></span>
+						<h:outputText value="Strasse"></h:outputText>
+						<h:outputText value="5D"></h:outputText>
+					</div>
+					<div class="text flex-nowrap col-6">
+						<span class="text col-3"><h3>Preis der Immobile</h3></span>
+						<h:outputText value="#{MbSuchmaske.ausgabe_preis}"></h:outputText>
+					</div>
+
+					<div class="text flex-nowrap col-6">
+						<span class="text col-3"><h3>Wohnfläche</h3></span>
+						<h:outputText value="#{MbSuchmaske.ausgabe_wohnflaeche}"></h:outputText>
+					</div>
+					<div class="text flex-nowrap col-6">
+						<span class="text col-3"><h3>Grundfläche</h3></span>
+						<h:outputText value="#{MbSuchmaske.ausgabe_grundflaeche}"></h:outputText>
+					</div>
+
+
+
+
+
+
+					<div>
+						<div class="text flex-nowrap ">
+							<span class="text "><h3>Beschreibung</h3></span>
+							<output class="text">
+								<h5>Ruhig gelegenes Einfamilienhaus des gehobenen
+									Segmentes. In diesem neuen Eigenheim werden Sie sich mit
+									bestimmtheit Wohlfühlen und Platz für Ihre gesammte Familie
+									finden.</h5>
+							</output>
+						</div>
+
+						<h5>Ein Blick auf die Immobilie:</h5>
+						<img src="Bildschirmfoto 2022-06-28 um 10.40.36.png"
+							class="img-fluid center" alt=""> </img>
+						<h:graphicImage library="img"
+							name="Bildschirmfoto 2022-06-28 um 10.40.36.png"
+							style="width:500px;height:500px;" />
+						<h:graphicImage library="img"
+							name="Bildschirmfoto 2022-06-28 um 10.46.57.png"
+							style="width:500px;height:500px;" />
+					</div>
+
+					<!-- ______________________________________________ -->
+
+					<div class="card">
+						<p:carousel value="#{view.immobilien}" var="immobilie"
+							orientation="vertical" verticalViewPortHeight="800px"
+							style="max-width: 1000px;margin-top: 2em;">
+							<f:facet name="header">
+								<h5>Passende Immobilien zu Ihrer Suche:</h5>
+							</f:facet>
+							<div class="product-item">
+								<div class="product-item-content">
+									<div class="p-mb-3">
+										<!--  
+                        <p:graphicImage name="demo/images/product/#{product.image}" styleClass="product-image"/>
+                        -->
+									</div>
+									<div>
+										<!--  
+                        <h4 class="p-mb-1">#{Immobilie.adress_new}</h4>
+                        <h6 class="p-mt-0 p-mb-3">
+                            <h:outputText value="#{Immobilie.preis_new}">
+                                <f:convertNumber type="currency" pattern="¤#0" currencySymbol="$" />
+                            </h:outputText>
+                        </h6>
+                        
+                        <div class="p-mt-5">
+                            <p:commandButton type="button" icon="pi pi-search" styleClass="rounded-button p-mr-2" />
+                            <p:commandButton type="button" icon="pi pi-star" styleClass="ui-button-success rounded-button p-mr-2" />
+                            <p:commandButton type="button" icon="pi pi-cog" styleClass="ui-button-help rounded-button" />
+                        </div>
+                        -->
+										<div class="text flex-nowrap col-6">
+											<span class="text col-3"><h3>Art der Immobiele</h3></span>
+											<!--  h:outputTextfield class= "text" value="#{MbSuchmaske.immobilienart}" name="Test" -->
+											<h:outputText value="#{MbSuchmaske.ausgabe_immobilienart}">
+
+											</h:outputText>
+
+										</div>
+										<div class="text flex-nowrap col-6">
+											<span class="text col-3"><h3>Ort der Immobilie</h3></span>
+											<h:outputText value="#{MbSuchmaske.ausgabe_stadt}"></h:outputText>
+										</div>
+
+										<div class="text flex-nowrap col-6">
+											<span class="text col-3"><h3>Anschrift</h3></span>
+											<h:outputText value="Strasse"></h:outputText>
+											<h:outputText value="5D"></h:outputText>
+										</div>
+										<div class="text flex-nowrap col-6">
+											<span class="text col-3"><h3>Preis der Immobile</h3></span>
+											<h:outputText value="#{MbSuchmaske.ausgabe_preis}"></h:outputText>
+										</div>
+
+										<div class="text flex-nowrap col-6">
+											<span class="text col-3"><h3>Wohnfläche</h3></span>
+											<h:outputText value="#{MbSuchmaske.ausgabe_wohnflaeche}"></h:outputText>
+										</div>
+										<div class="text flex-nowrap col-6">
+											<span class="text col-3"><h3>Grundfläche</h3></span>
+											<h:outputText value="#{MbSuchmaske.ausgabe_grundflaeche}"></h:outputText>
+										</div>
+									</div>
+								</div>
+							</div>
+						</p:carousel>
+					</div>
+
+					<!-- ______________________________________________ -->
+
+					<h:commandButton value="&lt;&lt;"
+						disabled="#{mbBrowse.prevButtonDisabled}" title="Zurück blättern"
+						style="font-size: 130%;" actionListener="#{MbSuchmaske.prev}" />
+					<h:commandButton value="&gt;&gt;"
+						disabled="#{mbBrowse.nextButtonDisabled}"
+						title="Vorwärts blättern" style="font-size: 130%;"
+						actionListener="#{MbSuchmaske.next}" />
+
+
+
+
+
+
+
+
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+							<li class="page-item disabled"><a class="page-link">Previous</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item"><a class="page-link" href="#">Next</a>
+							</li>
+						</ul>
+					</nav>
+
+				</div>
+			</div>
+
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
 
 

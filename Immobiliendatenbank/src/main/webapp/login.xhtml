@@ -59,7 +59,7 @@ login.xhtml - Loginportal
     </div>
     
         <div>
-            <button class="btn btn-dark mcmakler-color" type="submit" actionListener="#{mb.aclLogout}">Login</button>
+            <button class="btn btn-dark mcmakler-color" type="submit" actionListener="#{MbSuchmaske.aclLogout}">Login</button>
         </div>			
 									
 					
@@ -69,10 +69,10 @@ login.xhtml - Loginportal
 
 </form>
 
- <!-- ====================== hab ich mal noch drinnne gelassen ======================== -->
- <h:panelGrid columns="1" rendered="#{mb.loggedIn}" style="float: right;">
+ <!-- ======================  ======================== -->
+ <h:panelGrid columns="1" rendered="#{MbSuchmaske.loggedIn}" style="float: right;">
  Angemeldet als <strong>#{mb.kennung}</strong>
- <h:commandButton value="Logout" actionListener="#{mb.aclLogout}"/>
+ <h:commandButton value="Logout" actionListener="#{MbSuchmaske.aclLogout}"/>
  </h:panelGrid>
 
  </ui:define>

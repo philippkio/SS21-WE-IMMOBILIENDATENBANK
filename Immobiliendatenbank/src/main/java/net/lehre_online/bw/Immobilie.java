@@ -1,55 +1,154 @@
 package net.lehre_online.bw;
 
-public class Immobilie {
-	
-	private int id;
-	
-	private String name;
-	
-	private String department;
-	
-	private String email;
-	
-	public Immobilie() {
-	
-	}
-	
-	public Immobilie(int id, String name, String department, String email) {
-		this.id = id;
-		this.name = name;
-		this.department = department;
-		this.email = email;
+import java.io.Serializable;
+
+
+
+public class Immobilie implements Serializable {
+
+    private int id_new;
+    private String adress_new;
+    private String stadt_new;
+	private String immobilienart_new;
+	private String hausnummer_new;
+	private int preis_new;
+	private int plz_new;
+	private int grundflaeche_new;
+	private int wohnflaeche_new;
+	private String beschreibung_new;
+    
+
+    public Immobilie() {
+    }
+
+    public Immobilie(int id_new, String adress_new, String stadt_new, String immobilienart_new, String hausnummer_new, int preis_new,
+    		int plz_new, int grundflaeche_new, int wohnflaeche_new, String beschreibung_new) {
+        this.id_new = id_new;
+        this.adress_new = adress_new;
+        this.stadt_new = stadt_new;
+    	this.immobilienart_new = immobilienart_new;
+    	this.hausnummer_new = hausnummer_new;
+    	this.preis_new = preis_new;
+    	this.plz_new = plz_new;
+    	this.grundflaeche_new = grundflaeche_new;
+    	this.wohnflaeche_new = wohnflaeche_new;
+    	this.beschreibung_new = beschreibung_new;
+        
+    }
+
+    @Override
+    public Immobilie clone() {
+        return new Immobilie(getId_new(), getadress_new(), getStadt_new(), getImmobilienart_new(), getHausnummer_new(), getPreis_new(),
+        		getPlz_new(), getGrundflaeche_new(), getWohnflaeche_new(), getBeschreibung_new());
+    }
+
+    public int getId_new() {
+        return id_new;
+    }
+
+    public void setId_new(int id_new) {
+        this.id_new = id_new;
+    }
+
+    public String getadress_new() {
+        return adress_new;
+    }
+
+    public void setadress_new(String adress_new) {
+        this.adress_new = adress_new;
+    }
+    
+    public String getStadt_new() {
+		return stadt_new;
 	}
 
-	public String getName() {
-		return name;
+	public void setStadt_new(String stadt_new) {
+		this.stadt_new = stadt_new;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getImmobilienart_new() {
+		return immobilienart_new;
 	}
 
-	public String getDepartment() {
-		return department;
+	public void setImmobilienart_new(String immobilienart_new) {
+		this.immobilienart_new = immobilienart_new;
 	}
 
-	public void setDepartment(String department) {
-		this.department = department;
+	public String getHausnummer_new() {
+		return hausnummer_new;
 	}
 
-	public String getEmail() {
-		return email;
+	public void setHausnummer_new(String hausnummer_new) {
+		this.hausnummer_new = hausnummer_new;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public int getPreis_new() {
+		return preis_new;
 	}
 
-	public int getId() {
-		return id;
+	public void setPreis_new(int preis_new) {
+		this.preis_new = preis_new;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getPlz_new() {
+		return plz_new;
 	}
+
+	public void setPlz_new(int plz_new) {
+		this.plz_new = plz_new;
+	}
+
+	public int getGrundflaeche_new() {
+		return grundflaeche_new;
+	}
+
+	public void setGrundflaeche_new(int grundflaeche_new) {
+		this.grundflaeche_new = grundflaeche_new;
+	}
+
+	public int getWohnflaeche_new() {
+		return wohnflaeche_new;
+	}
+
+	public void setWohnflaeche_new(int wohnflaeche_new) {
+		this.wohnflaeche_new = wohnflaeche_new;
+	}
+
+	public String getBeschreibung_new() {
+		return beschreibung_new;
+	}
+
+	public void setBeschreibung_new(String beschreibung_new) {
+		this.beschreibung_new = beschreibung_new;
+	}
+
+	/*
+	@Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((adress_new == null) ? 0 : adress_new.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Immobilie other = (Immobilie) obj;
+        if (adress_new == null) {
+            return other.adress_new == null;
+        }
+        else {
+            return adress_new.equals(other.adress_new);
+        }
+    }
+	*/
 }

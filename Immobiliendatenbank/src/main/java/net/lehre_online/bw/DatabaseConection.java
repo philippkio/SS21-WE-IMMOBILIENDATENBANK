@@ -219,37 +219,3 @@ public class DatabaseConection implements Serializable {
 
 
 
-/**
-
-{
-
-	public static void main(String[] args) {
-
-		// creates three different Connection objects
-		Connection conn = null;
-
-		try {
-			String url1 = "jdbc:mysql://localhost:3306/db";
-			String user = "user";
-			String password = "password";
-
-			conn = DriverManager.getConnection(url1, user, password);
-			if (conn != null) {
-				System.out.println("Connected to the database db way1");
-			}
-
-		} catch (SQLException ex) {
-			System.out.println("An error occurred. Maybe user/password is invalid");
-			ex.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException ex) {
-					ex.printStackTrace();
-				}
-			}
-		}
-	}
-}
-*/

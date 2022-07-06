@@ -31,18 +31,22 @@ login.xhtml - Startseite für Navigationsbeispiel
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
-  
+
 						<!-- Dropdown auswhl möglichkeiten -->
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="Immo-wrapping">Immobilienart:</span>
-							<p:selectOneMenu class="coll-5" id="auswahlImmobilienart" value="#{MbSuchmaske.immobilienart}">
+							<p:selectOneMenu class="coll-5" id="auswahlImmobilienart"
+								value="#{MbSuchmaske.immobilienart}">
 								<f:selectItem itemLabel="Klicken zum auswählen!" itemValue="" />
-								<f:selectItem itemLabel="Eigentumswohnung" itemValue="Eigentumswohnung" />
-								<f:selectItem itemLabel="Einfamilienhaus" itemValue="Einfamilienhaus" />
-								<f:selectItem itemLabel="Mehrfamilienhaus" itemValue="Mehrfamilienhaus" />
+								<f:selectItem itemLabel="Eigentumswohnung"
+									itemValue="Eigentumswohnung" />
+								<f:selectItem itemLabel="Einfamilienhaus"
+									itemValue="Einfamilienhaus" />
+								<f:selectItem itemLabel="Mehrfamilienhaus"
+									itemValue="Mehrfamilienhaus" />
 								<f:selectItem itemLabel="Reihenhaus" itemValue="Reihenhaus" />
 								<f:selectItem itemLabel="Grundstück" itemValue="Grundstück" />
-							
+
 							</p:selectOneMenu>
 						</div>
 						<div class="input-group flex-nowrap">
@@ -52,8 +56,8 @@ login.xhtml - Startseite für Navigationsbeispiel
 								<f:selectItem itemLabel="Berlin" itemValue="Berlin" />
 								<f:selectItem itemLabel="Hamburg" itemValue="Hamburg" />
 								<f:selectItem itemLabel="München" itemValue="München" />
-								<f:selectItem itemLabel="Köln" itemValue="Köln"/>
-							
+								<f:selectItem itemLabel="Köln" itemValue="Köln" />
+
 							</p:selectOneMenu>
 						</div>
 						<h3>Zum verfeinern der Suche:</h3>
@@ -62,74 +66,85 @@ login.xhtml - Startseite für Navigationsbeispiel
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
 								Minimale Grundfläche</span> <label for="customRange2"
-								class="form-label"></label> 
-						            <h:inputHidden id="minGrundflaeche_id" min="0" max="10000" value="#{MbSuchmaske.minGrundflaeche}"/>
-						            <p:slider for="minGrundflaeche_id" display="output_minGrundflaeche" minValue="0" maxValue="10000" 
-						            class="form-range" displayTemplate="{value} m²"/>
-						            <h:outputText id="output_minGrundflaeche" value="#{MbSuchmaske.minGrundflaeche}"/>		
+								class="form-label"></label>
+							<h:inputHidden id="minGrundflaeche_id" min="0" max="10000"
+								value="#{MbSuchmaske.minGrundflaeche}" />
+							<p:slider for="minGrundflaeche_id"
+								display="output_minGrundflaeche" minValue="0" maxValue="10000"
+								class="form-range" displayTemplate="{value} m²" />
+							<h:outputText id="output_minGrundflaeche"
+								value="#{MbSuchmaske.minGrundflaeche}" />
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
 								Maximale Grundfläche</span> <label for="customRange2"
-								class="form-label"></label> 
-						            <h:inputHidden id="maxGrundflaeche_id" min="0" max="10000" value="#{MbSuchmaske.maxGrundflaeche}"/>
-						            <p:slider for="maxGrundflaeche_id" display="output_maxGrundflaeche" minValue="0" maxValue="10000" 
-						            class="form-range" displayTemplate="{value} m²"/>
-						            <h:outputText id="output_maxGrundflaeche" value="#{MbSuchmaske.maxGrundflaeche}"/>
+								class="form-label"></label>
+							<h:inputHidden id="maxGrundflaeche_id" min="0" max="10000"
+								value="#{MbSuchmaske.maxGrundflaeche}" />
+							<p:slider for="maxGrundflaeche_id"
+								display="output_maxGrundflaeche" minValue="0" maxValue="10000"
+								class="form-range" displayTemplate="{value} m²" />
+							<h:outputText id="output_maxGrundflaeche"
+								value="#{MbSuchmaske.maxGrundflaeche}" />
 						</div>
 						<h4>Die Wohnfläche:</h4>
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
-								Minimale Wohnfläche</span> <label for="customRange2"
-								class="form-label"></label> 
-						            <h:inputHidden id="minWohnflaeche_id" min="0" max="1000" value="#{MbSuchmaske.minWohnflaeche}"/>
-						            <p:slider for="minWohnflaeche_id" display="output_minWohnflaeche" minValue="0" maxValue="1000" 
-						            class="form-range" displayTemplate="{value} m²"/>
-						            <h:outputText id="output_minWohnflaeche" value="#{MbSuchmaske.minWohnflaeche}"/>
+								Minimale Wohnfläche</span> <label for="customRange2" class="form-label"></label>
+							<h:inputHidden id="minWohnflaeche_id" min="0" max="1000"
+								value="#{MbSuchmaske.minWohnflaeche}" />
+							<p:slider for="minWohnflaeche_id" display="output_minWohnflaeche"
+								minValue="0" maxValue="1000" class="form-range"
+								displayTemplate="{value} m²" />
+							<h:outputText id="output_minWohnflaeche"
+								value="#{MbSuchmaske.minWohnflaeche}" />
 						</div>
 
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
-								Maximale Wohnfläche</span> <label for="customRange2"
-								class="form-label"></label> 
-						            <h:inputHidden id="maxWohnflaeche_id" min="0" max="1000" value="#{MbSuchmaske.maxWohnflaeche}"/>
-						            <p:slider for="maxWohnflaeche_id" display="output_maxWohnflaeche" minValue="0" maxValue="1000" 
-						            class="form-range" displayTemplate="{value} m²"/>
-						            <h:outputText id="output_maxWohnflaeche" value="#{MbSuchmaske.maxWohnflaeche}"/>
+								Maximale Wohnfläche</span> <label for="customRange2" class="form-label"></label>
+							<h:inputHidden id="maxWohnflaeche_id" min="0" max="1000"
+								value="#{MbSuchmaske.maxWohnflaeche}" />
+							<p:slider for="maxWohnflaeche_id" display="output_maxWohnflaeche"
+								minValue="0" maxValue="1000" class="form-range"
+								displayTemplate="{value} m²" />
+							<h:outputText id="output_maxWohnflaeche"
+								value="#{MbSuchmaske.maxWohnflaeche}" />
 						</div>
 
 						<h4>Preis</h4>
 						<div class="input-group flex-nowrap">
 							<span class="input-group-text col-4" id="addon-wrapping">
 								Maximaler Immobilienpreis</span> <label for="customRange2"
-								class="form-label"></label> 
-						            <h:inputHidden id="preis_id" min="0" max="1000000" value="#{MbSuchmaske.preis}"/>
-						            <p:slider for="preis_id" display="output_preis" minValue="0" maxValue="1000000" 
-						            class="form-range" displayTemplate="{value} €"/>
-						            <h:outputText id="output_preis" value="#{MbSuchmaske.preis}"/>
+								class="form-label"></label>
+							<h:inputHidden id="preis_id" min="0" max="1000000"
+								value="#{MbSuchmaske.preis}" />
+							<p:slider for="preis_id" display="output_preis" minValue="0"
+								maxValue="1000000" class="form-range"
+								displayTemplate="{value} €" />
+							<h:outputText id="output_preis" value="#{MbSuchmaske.preis}" />
 						</div>
 
 					</div>
 
 				</div>
-				
+
 
 
 
 				<div class="container overflow-hidden">
 					<div class="row gy-9">
-					
-		 <h:commandButton
-                        value="Suchen!"
-                        actionListener="#{MbSuchmaske.suchErgebnis}" action="resultBoard.xhtml"/>
+
+						<h:commandButton value="Suchen!"
+							actionListener="#{MbSuchmaske.suchErgebnis}"
+							action="resultBoard.xhtml" />
 					</div>
 				</div>
 
-
 			</h:form>
-			
-		
+
+
 
 
 

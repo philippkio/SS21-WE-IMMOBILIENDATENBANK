@@ -1,10 +1,16 @@
 package net.lehre_online.bw;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.primefaces.model.file.UploadedFile;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 
@@ -49,6 +55,10 @@ public class MbSuchmaske implements Serializable {
 	private Statement stm = null;
 	private ResultSet rs = null;
 	// private PreparedStatement ps = null;
+	
+	private String kennung = "";
+	private String pw = "";
+	private boolean loggedIn = false;
 
 	private String immobilienart =null;
 	private String stadt=null;
@@ -76,7 +86,9 @@ public class MbSuchmaske implements Serializable {
 	private int ausgabe_wohnflaeche;
 	private String ausgabe_beschreibung=null;
 	
+	private UploadedFile file;
 	
+	private List<Immobilie> immobilienList = new ArrayList<Immobilie>();
 
 	/*--------------------------------------------------------------------------*/
 	public MbSuchmaske() {
@@ -169,6 +181,13 @@ public class MbSuchmaske implements Serializable {
 		connected = b;
 	}
 
+	public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
 	/*----------------------------------Ausgabewerte fuer resultBoard----------------------------------------*/
 
 	
@@ -321,6 +340,12 @@ public class MbSuchmaske implements Serializable {
 	}
 
 	/*--------------------------------------------------------------------------*/
+	public void setKennung( String s ){ kennung = s; } 
+	public String getKennung(){ return kennung; }
+	
+	public void setPw( String s ){ pw = s; } 
+	public String getPw(){ return pw; }
+	/*--------------------------------------------------------------------------*/
 	
 	private void showData() throws SQLException {
 		//setImmobilienart(rs.getString("property_type"));
@@ -373,11 +398,16 @@ public class MbSuchmaske implements Serializable {
 			        System.out.print("Immobilienart: "+rs.getString("property_type")+"\n");
 			        ausgabe_immobilienart=rs.getString("property_type");
 			        System.out.print("Beschreibung: "+rs.getString("description")+" , ");
-			        
+			        Immobilie immobilie = new Immobilie(rs.getInt("ID"), rs.getString("adress"), rs.getString("city"), rs.getString("property_type"),
+			        		rs.getString("housenumber"), rs.getInt("price"), rs.getInt("zip"), rs.getInt("lot_size"), rs.getInt("living_area"), 
+			        		rs.getString("description"));
+					System.out.println(immobilie);
+					immobilienList.add(immobilie);
 			        
 			    }
 						
-			
+				ImmobilieService service= new ImmobilieService(immobilienList);
+				CarouselView view= new CarouselView();
 				
 				
 				stm.close();
@@ -531,9 +561,9 @@ public class MbSuchmaske implements Serializable {
 		try {
 			System.out.println("Insert try entered...");
 			// if( ps == null ){
-			String sQl = "INSERT INTO immobilien (city, adress, housenumber, living_area, lot_size, price, description, zip, property_type)"
+			String sQl = "INSERT INTO immobilien (city, adress, housenumber, living_area, lot_size, price, description, picture, zip, property_type)"
 					+ " "
-					+ "VALUES (?, ?, ?, ?, ? , ?, ? , ?, ? )";
+					+ "VALUES (?, ?, ?, ?, ? , ?, ? , ?, ?, ? )";
 			System.out.println("Insert sql statement...");
 			PreparedStatement ps = con.prepareStatement(sQl);
 			// }
@@ -546,8 +576,9 @@ public class MbSuchmaske implements Serializable {
 			ps.setInt(5, insert_Grundflaeche);
 			ps.setInt(6, insert_Preis);
 			ps.setString(7, insert_Beschreibung);
-			ps.setInt(8, insert_Plz);
-			ps.setString(9, insert_immobilienart);
+			ps.setBinaryStream(8, file.getInputStream());
+			ps.setInt(9, insert_Plz);
+			ps.setString(10, insert_immobilienart);
 
 			System.out.println("Insert 2...");
 			int n = ps.executeUpdate();
@@ -562,7 +593,7 @@ public class MbSuchmaske implements Serializable {
 
 			// Result set neu aufbauen:
 			rs = stm.executeQuery(SQL_SELECT);
-		} catch (SQLException ex) {
+		} catch (SQLException | IOException ex) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "SQLException", ex.getLocalizedMessage()));
 			System.out.println("Error: " + ex);
@@ -634,113 +665,33 @@ public class MbSuchmaske implements Serializable {
 			ex.printStackTrace();
 		}
 	}
+	
+	
+	public String actLogin() {
+			
+			String sOutcome = null; 
+			System.out.println( "actLogin()..." );
+			
+			kennung = kennung.trim(); 
+			pw = pw.trim();
+			
+			if( kennung.equalsIgnoreCase( "user" ) && 
+					pw.equals( "user" ) )
+			{
+				sOutcome = "user";
+				loggedIn = true;
+			}
+			else if( kennung.equalsIgnoreCase( "admin" ) &&
+						pw.equals( "admin" ) )
+			{
+				sOutcome = "admin"; 
+				loggedIn = true;
+			}
+			else FacesContext.getCurrentInstance().addMessage( null,
+					new FacesMessage( FacesMessage.SEVERITY_WARN,
+							"Fehler", "Kennung oder PW falsch (user/user oder admin/admin)" ));
+			return sOutcome;
+		}
+	public void aclLogout( ActionEvent ae ) { loggedIn = false; }
 }
 
-/*
- * import static java.lang.System.out;
- * 
- * import java.io.Serializable;
- * 
- * 
- * import jakarta.faces.event.ActionEvent;
- * 
- * 
- * import jakarta.enterprise.context.RequestScoped; import jakarta.inject.Named;
- * 
- * 
- * @Named
- * 
- * @RequestScoped public class MbSuchmaske {
- * 
- * private String immobilienart = null; private String immobilienart1 = null;
- * private String immobilienart2 = null; private String immobilienart3 = null;
- * private String immobilienart4 = null; private String immobilienart5 = null;
- * private String stadt; private String result; private int minGrundflaeche;
- * private int maxGrundflaeche; private int minWohnflaeche; private int
- * maxWohnflaeche; public String getStadt() { return stadt; }
- * 
- * public void setStadt(String stadt) { this.stadt = stadt; }
- * 
- * public int getMinGrundflaeche() { return minGrundflaeche; }
- * 
- * public void setMinGrundflaeche(int minGrundflaeche) { this.minGrundflaeche =
- * minGrundflaeche; }
- * 
- * public int getMaxGrundflaeche() { return maxGrundflaeche; }
- * 
- * public void setMaxGrundflaeche(int maxGrundflaeche) { this.maxGrundflaeche =
- * maxGrundflaeche; }
- * 
- * public int getMinWohnflaeche() { return minWohnflaeche; }
- * 
- * public void setMinWohnflaeche(int minWohnflaeche) { this.minWohnflaeche =
- * minWohnflaeche; }
- * 
- * public int getMaxWohnflaeche() { return maxWohnflaeche; }
- * 
- * public void setMaxWohnflaeche(int maxWohnflaeche) { this.maxWohnflaeche =
- * maxWohnflaeche; }
- * 
- * 
- * 
- * private int immobilienpreis;
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * public int getImmobilienpreis() { return immobilienpreis; }
- * 
- * public void setImmobilienpreis(int immobilienpreis) { this.immobilienpreis =
- * immobilienpreis; }
- * 
- * public void submit() { if (immobilienart1 != null) { result =
- * "Angegebene Immobilienart: " + immobilienart1; System.out.println(result);}
- * else { System.out.println("fail");} }
- * 
- * 
- * 
- * 
- * 
- * public String getImmobilienart1() { return immobilienart1; }
- * 
- * public void setImmobilienart1(String immobilienart1) { this.immobilienart1 =
- * immobilienart1; }
- * 
- * public String getImmobilienart2() { return immobilienart2; }
- * 
- * public void setImmobilienart2(String immobilienart2) { this.immobilienart2 =
- * immobilienart2; }
- * 
- * public String getImmobilienart3() { return immobilienart3; }
- * 
- * public void setImmobilienart3(String immobilienart3) { this.immobilienart3 =
- * immobilienart3; }
- * 
- * public String getImmobilienart4() { return immobilienart4; }
- * 
- * public void setImmobilienart4(String immobilienart4) { this.immobilienart4 =
- * immobilienart4; }
- * 
- * public String getImmobilienart5() { return immobilienart5; }
- * 
- * public void setImmobilienart5(String immobilienart5) { this.immobilienart5 =
- * immobilienart5; }
- * 
- * public String getSubmit() { System.out.println(immobilienart1); return
- * result; }
- * 
- * public void ausgabeImmo() {
- * 
- * System.out.println(immobilienart1); }
- * 
- * public String getImmobilienart() { return immobilienart; }
- * 
- * public void setImmobilienart(String immobilienart) { this.immobilienart =
- * immobilienart; }
- * 
- * 
- * }
- */

@@ -17,6 +17,14 @@ import java.util.Date;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 
+
+/**
+ * 
+ * @author Philipp Kionke und Magdalena Czerwinska
+ * Die DatabaseConection Klasse ist zusammen mit der DatabaseHelper Klasse für den Verbindungsaufbau
+ * zur MySQL Datenbank zuständig
+ *
+ */
 public class DatabaseConection implements Serializable {
 
 	  private static final long serialVersionUID = 1L;
@@ -28,6 +36,10 @@ public class DatabaseConection implements Serializable {
 	  private PrintWriter pwLog = null;
 	  private boolean use_pool = false;
 	  
+	  /**
+	   * hier werden die, für die Verbindung zur MySQL Datenbank, benötigten Komponenten wie das Passwort,
+	   * der Benutzername und die Datenban Adresse aus der faces-config Datei geladen
+	   */
 	  private String user    = "from faces-config.xml",
 	                 pw      = "from faces-config.xml",
 	                 constr  = "from faces-config.xml", 

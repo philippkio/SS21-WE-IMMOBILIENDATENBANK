@@ -8,6 +8,12 @@ import java.sql.Connection;
 import jakarta.faces.application.Application;
 import jakarta.faces.context.FacesContext;
 
+	    /**
+		 * 
+		 * @author Philipp Kionke und Magdalena Czerwinska
+		 * Die DatabaseConection Klasse ist zusammen mit der DatabaseHelper Klasse für den Verbindungsaufbau
+		 * zur MySQL Datenbank zuständig
+		 */
 public class DatabaseHelper {
 	  
 	  /**

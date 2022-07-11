@@ -1,5 +1,9 @@
 package net.lehre_online.bw;
-
+/**
+ * @author Philipp Kionke und Magdalena Czerwinska
+ * Diese Klasse ist zuständig für die CarouselView von Prime Faces in der resultBoard.xhtml 
+ * In der immobilien Liste werden die passenden Immobilien welche auf die Suchparameter des Anwenders Passen gespeichert
+ */
 import java.io.Serializable;
 import java.util.List;
 

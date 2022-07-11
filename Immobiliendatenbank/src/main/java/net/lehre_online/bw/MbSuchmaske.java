@@ -23,7 +23,9 @@ import jakarta.faces.event.ActionEvent;
 import jakarta.inject.Named;
 
 /**
- * Backing bean aller JSF-Seiten 
+ * @author Philipp Kionke und Magdalena Czerwinska
+ * Backing bean aller JSF-Seiten und zuständig für die hauptsächliche Funktion der Web App.
+ *
  */
 @Named("MbSuchmaske")
 @RequestScoped
@@ -45,7 +47,7 @@ public class MbSuchmaske implements Serializable {
 	private boolean prevButtonDisabled = true;
 	private boolean nextButtonDisabled = true;
 
-	/*
+	/**
 	 * DatabaseHelper ist eine Hilfsklasse, die u. a. den Verbindungsaufbau zur
 	 * Datenbank vereinfacht:
 	 */
@@ -60,6 +62,9 @@ public class MbSuchmaske implements Serializable {
 	private String pw = "";
 	private boolean loggedIn = false;
 
+	/**
+	 * Hier werden alle benötigten Variablen angelegt.
+	 */
 	private String immobilienart =null;
 	private String stadt=null;
 	private int minGrundflaeche;
@@ -109,6 +114,10 @@ public class MbSuchmaske implements Serializable {
 		System.out.println("MbSuchmaske.postRenderAction");
 	}
 
+	/**
+	 * Im Folgenden werden alle benötigten Getter und Setter instanziirt
+	 * @return
+	 */
 	public String getImmobilienart() {
 		return immobilienart;
 	}
@@ -188,6 +197,7 @@ public class MbSuchmaske implements Serializable {
     public void setFile(UploadedFile file) {
         this.file = file;
     }
+    
 	/*----------------------------------Ausgabewerte fuer resultBoard----------------------------------------*/
 
 	
@@ -367,6 +377,10 @@ public class MbSuchmaske implements Serializable {
 	}
 
 	/*--------------------------------------------------------------------------*/
+	/**
+	 * Die Methode suchErgebnis ist zuständig für die erstellung der passenden SQL Query, welche als Ergebnis
+	 * passende Immobilien aus der MySQL Datenbank zurück liefert.
+	 */
 	public void suchErgebnis() {
 		connect();
 		if (DatabaseHelper != null)
@@ -429,7 +443,7 @@ public class MbSuchmaske implements Serializable {
 	 * Verbindung zur Datenbank herstellen und disconnect button und browse buttons
 	 * freigeben
 	 * 
-	 * @param ae ActionEvent
+	 * 
 	 */
 	public void connect() {
 
@@ -460,95 +474,18 @@ public class MbSuchmaske implements Serializable {
 		//insert();
 	}
 
-	/*--------------------------------------------------------------------------*/
+	
 
-	/**
-	 * Verbindung zur Datenbank beenden
-	 * 
-	 * @param ae ActionEvent
-	 
-	public void disconnect(ActionEvent ae) {
+	
 
-		if (con != null) {
-			try {
-				if (rs != null)
-					rs.close();
-				if (stm != null)
-					stm.close();
+	
 
-				DatabaseHelper.closeConnection(con);
-
-				connected = false;
-				prevButtonDisabled = true;
-				nextButtonDisabled = true;
-
-				//setMatNr(0);
-				//setName("");
-				//setGeburtstag(null);
-				//setMasterstudent(false);
-
-			} catch (Exception ex) {
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Exception", ex.getLocalizedMessage()));
-				System.out.println("Error: " + ex);
-				ex.printStackTrace();
-			}
-		}
-	}
+	
 
 	/*--------------------------------------------------------------------------*/
 
 	/**
-	 * Zum vorherigen Datensatz scrollen
-	 * 
-	 * @param ae ActionEvent
-	 */
-	public void prev(ActionEvent ae) {
-		try {
-			if ((rs != null) && rs.previous()) {
-				showData();
-
-		       
-		        
-				nextButtonDisabled = false;
-			} else
-				prevButtonDisabled = true;
-
-		} catch (Exception ex) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Exception", ex.getLocalizedMessage()));
-			System.out.println("Error: " + ex);
-			ex.printStackTrace();
-		}
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	/**
-	 * Weiterscrollen
-	 * 
-	 * @param ae ActionEvent
-	 */
-	public void next(ActionEvent ae) {
-		try {
-			if ((rs != null) && rs.next()) {
-				showData();
-				prevButtonDisabled = false;
-			} else
-				nextButtonDisabled = true;
-
-		} catch (Exception ex) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Exception", ex.getLocalizedMessage()));
-			System.out.println("Error: " + ex);
-			ex.printStackTrace();
-		}
-	}
-
-	/*--------------------------------------------------------------------------*/
-
-	/**
-	 * Datensatz einfügen
+	 * Datensatz mit neuer Immobilie in die MySQL Datenbank einfügen einfügen
 	 * 
 	 * @param ae ActionEvent
 	 */
@@ -604,69 +541,16 @@ public class MbSuchmaske implements Serializable {
 		immobilienart = null;
 	}
 
-	/*--------------------------------------------------------------------------*/
-
-	/**
-	 * Datensatz löschen
-	 * 
-	 * @param ae ActionEvent
-	 */
-	public void delete(ActionEvent ae) {
-
-		if (DatabaseHelper != null)
-			DatabaseHelper.log("delete()...");
-
-		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_WARN, "Datensatz nicht gelöscht!", "Löschen nicht erlaubt."));
-	}
+	
 
 	/*--------------------------------------------------------------------------*/
 
+	
+	
 	/**
-	 * Datensatz aktualisieren
-	 * 
-	 * @param ae ActionEvent
+	 * Handhabt den Loginprozess zur überprüfung ob der Anwender berechtigt ist, auch Immobilien hinzuzufügen
+	 * @return Outcome zur Navigation
 	 */
-	public void update(ActionEvent ae) {
-
-		// out.println( "update()..." );
-		if (DatabaseHelper != null)
-			DatabaseHelper.log("update()...");
-
-		try {
-			PreparedStatement ps = con.prepareStatement("UPDATE student SET "
-					+ "name = ?, vorname = ?, geburtstag = ?, masterstudent = ? " + "WHERE mat_nr = ?");
-/*
-			ps.setString(1, name);
-			ps.setString(2, vorname);
-			ps.setDate(3, geburtstag);
-			ps.setBoolean(4, masterstudent);
-			ps.setInt(5, matNr);
-*/
-			int n = ps.executeUpdate();
-			if (n == 1) {
-				System.out.println("O.K.,  Datensatz geändert.");
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_INFO, "O. K.", "Datensatz wurde erfolgreich geändert."));
-			} else if (n == 0) {
-				System.out.println("Keine Änderung!!");
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
-						"Datensatz nicht geändert!", "PK-Änderung nicht erlaubt."));
-			}
-
-			ps.close();
-
-			// Result set neu aufbauen:
-			rs = stm.executeQuery(SQL_SELECT);
-		} catch (SQLException ex) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "SQLException", ex.getLocalizedMessage()));
-			System.out.println("Error: " + ex);
-			ex.printStackTrace();
-		}
-	}
-	
-	
 	public String actLogin() {
 			
 			String sOutcome = null; 
@@ -679,12 +563,6 @@ public class MbSuchmaske implements Serializable {
 					pw.equals( "user" ) )
 			{
 				sOutcome = "user";
-				loggedIn = true;
-			}
-			else if( kennung.equalsIgnoreCase( "admin" ) &&
-						pw.equals( "admin" ) )
-			{
-				sOutcome = "admin"; 
 				loggedIn = true;
 			}
 			else FacesContext.getCurrentInstance().addMessage( null,

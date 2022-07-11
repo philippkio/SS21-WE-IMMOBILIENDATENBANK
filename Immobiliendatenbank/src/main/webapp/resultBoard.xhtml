@@ -55,6 +55,7 @@ login.xhtml - Startseite für Navigationsbeispiel
 						<span class="text col-3"><h3>Art der Immobiele</h3></span>
 						<!--  h:outputTextfield class= "text" value="#{MbSuchmaske.immobilienart}" name="Test" -->
 						<h:outputText value="#{MbSuchmaske.ausgabe_immobilienart}">
+						<h:outputText value="Einfamilienhaus"></h:outputText>
 
 						</h:outputText>
 
@@ -62,24 +63,28 @@ login.xhtml - Startseite für Navigationsbeispiel
 					<div class="text flex-nowrap col-6">
 						<span class="text col-3"><h3>Ort der Immobilie</h3></span>
 						<h:outputText value="#{MbSuchmaske.ausgabe_stadt}"></h:outputText>
+						<h:outputText value="Berlin"></h:outputText>
 					</div>
 
 					<div class="text flex-nowrap col-6">
 						<span class="text col-3"><h3>Anschrift</h3></span>
-						<h:outputText value="Strasse"></h:outputText>
-						<h:outputText value="5D"></h:outputText>
+						<h:outputText value="Hauptstraße"></h:outputText>
+						<h:outputText value=" 5D"></h:outputText>
 					</div>
 					<div class="text flex-nowrap col-6">
 						<span class="text col-3"><h3>Preis der Immobile</h3></span>
+						<h:outputText value="475.000€"></h:outputText>
 						<h:outputText value="#{MbSuchmaske.ausgabe_preis}"></h:outputText>
 					</div>
 
 					<div class="text flex-nowrap col-6">
 						<span class="text col-3"><h3>Wohnfläche</h3></span>
+						<h:outputText value="155m²"></h:outputText>
 						<h:outputText value="#{MbSuchmaske.ausgabe_wohnflaeche}"></h:outputText>
 					</div>
 					<div class="text flex-nowrap col-6">
 						<span class="text col-3"><h3>Grundfläche</h3></span>
+						<h:outputText value="800m²"></h:outputText>
 						<h:outputText value="#{MbSuchmaske.ausgabe_grundflaeche}"></h:outputText>
 					</div>
 
@@ -93,9 +98,8 @@ login.xhtml - Startseite für Navigationsbeispiel
 							<span class="text "><h3>Beschreibung</h3></span>
 							<output class="text">
 								<h5>Ruhig gelegenes Einfamilienhaus des gehobenen
-									Segmentes. In diesem neuen Eigenheim werden Sie sich mit
-									bestimmtheit Wohlfühlen und Platz für Ihre gesammte Familie
-									finden.</h5>
+									Segmentes. In diesem neuen Eigenheim werden Sie sich, zusammen mit Ihrer Familie mit
+									Bestimmtheit Wohlfühlen.</h5>
 							</output>
 						</div>
 
@@ -113,7 +117,7 @@ login.xhtml - Startseite für Navigationsbeispiel
 					<!-- ______________________________________________ -->
 
 					<div class="card">
-						<p:carousel value="#{view.immobilien}" var="immobilie"
+						<p:carousel value="#{CarouselView.immobilien}" var="immobilie"
 							orientation="vertical" verticalViewPortHeight="800px"
 							style="max-width: 1000px;margin-top: 2em;">
 							<f:facet name="header">

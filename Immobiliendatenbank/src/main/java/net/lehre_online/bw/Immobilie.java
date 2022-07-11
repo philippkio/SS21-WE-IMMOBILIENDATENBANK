@@ -2,10 +2,19 @@ package net.lehre_online.bw;
 
 import java.io.Serializable;
 
-
+/**
+ * 
+ * @author Philipp Kionke und Magdalena Czerwinska
+ * In der Immobilie Klasse wird in zusammenarbeit mit der CarouselView und ImmobilieService die Rückgabe 
+ * der passenden Immobilien an die resultBoard.xhtml Seite geregelt.
+ *
+ */
 
 public class Immobilie implements Serializable {
 
+	/**
+	 * alle benötigten variablen werden angelegt.
+	 */
     private int id_new;
     private String adress_new;
     private String stadt_new;
@@ -36,6 +45,9 @@ public class Immobilie implements Serializable {
         
     }
 
+    /**
+     * Im Folgenden werden alle Getter und Setter für die jeweiligen Felder/ wie z. B. die Adresse instanziirt.
+     */
     @Override
     public Immobilie clone() {
         return new Immobilie(getId_new(), getadress_new(), getStadt_new(), getImmobilienart_new(), getHausnummer_new(), getPreis_new(),
@@ -122,33 +134,5 @@ public class Immobilie implements Serializable {
 		this.beschreibung_new = beschreibung_new;
 	}
 
-	/*
-	@Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((adress_new == null) ? 0 : adress_new.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        Immobilie other = (Immobilie) obj;
-        if (adress_new == null) {
-            return other.adress_new == null;
-        }
-        else {
-            return adress_new.equals(other.adress_new);
-        }
-    }
-	*/
+	
 }

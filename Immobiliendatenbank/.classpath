@@ -8,18 +8,24 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache-tomee-plume-9.0.0-M7/lib/jakartaee-api-9.1.0-tomcat.jar">
+	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache tome durch eclipse /apache-tomcat-10.0.13/lib/jakarta.faces-api-2.3.1.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://tomcat.apache.org/tomcat-10.0-doc/api/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache-tomee-plume-9.0.0-M7/lib/jakarta.faces-3.0.0.jar">
+	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache tome durch eclipse /apache-tomcat-10.0.13/lib/jakarta.faces-3.0.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://tomcat.apache.org/tomcat-10.0-doc/api/"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache tome durch eclipse /apache-tomcat-10.0.13/lib/mysql-connector-java-8.0.29.jar"/>
+	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/apache tome durch eclipse /apache-tomcat-10.0.13/lib/primefaces-11.0.0-jakarta.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://tomcat.apache.org/tomcat-10.0-doc/api/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/philippkionke/Documents/Uni Programme/mysql-connector-java-8.0.29/mysql-connector-java-8.0.29.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.0 75">
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v10.0 allnew">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>

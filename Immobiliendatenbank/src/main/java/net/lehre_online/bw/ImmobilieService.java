@@ -8,6 +8,13 @@ import java.util.Random;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 
+/**
+ * Erstellt die Liste mit dem resultset und sorgt zusammen mit CarouselView und Immobilie
+ * für die übergabe der passenden Immobilien an die resultBoard.xhtml
+ * @author Philipp Kionke und Magdalena Czerwinska
+ *
+ */
+
 @Named
 @ApplicationScoped
 public class ImmobilieService {

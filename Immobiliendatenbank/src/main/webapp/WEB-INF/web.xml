@@ -13,6 +13,7 @@
     <welcome-file>mainBoard.xhtml</welcome-file>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+   
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
@@ -24,6 +25,7 @@
     <url-pattern>*.xhtml</url-pattern>
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
+ 
   <session-config>
     <session-timeout>35</session-timeout>
   </session-config>
